@@ -20,7 +20,7 @@ title                    : "Hyunwook Kim's Technical Notes"
 title_separator          : "|"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Hyunwook Kim"
-description              : "Hello! I'm Hyunwook Kim, a Computer Science major with a strong emphasis on Data Engineering and a profound enthusiasm for machine learning. I share content related to data science, with a specific focus on topics centered around machine learning."
+description              : "I share content related to data science, with a focus on topics centered around machine learning."
 url                      : "https://hyunwookkim418.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -106,8 +106,8 @@ analytics:
 author:
   name             : "Hyunwook Kim"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Hello! I'm Hyunwook Kim, a Computer Science major with a strong emphasis on Data Engineering and a profound enthusiasm for machine learning. I share content related to data science, with a specific focus on topics centered around machine learning."
-  location         : "Columbia, South Carolina, USA"
+  bio              : "I share content related to data science, with a focus on topics centered around machine learning."
+  location         : "USA"
   email            :
   links:
     - label: "Email"
