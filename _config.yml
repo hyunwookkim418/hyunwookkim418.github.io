@@ -17,10 +17,10 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 # Site Settings
 locale                   : "en-US"
 title                    : "Hyunwook Kim's Technical Notes"
-title_separator          : "-"
+title_separator          : "|"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Hyunwook Kim"
-description              : "An amazing website."
+description              : "Hello! I'm Hyunwook Kim, and this is my technical blog where I share data science-related content, particularly focusing on topics like machine learning."
 url                      : "https://hyunwookkim418.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
