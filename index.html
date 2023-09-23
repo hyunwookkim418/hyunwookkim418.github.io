@@ -31,7 +31,11 @@
         h1{
             font-family: 'Maven Pro';
         }
-      
+        
+        /* body{
+            background-color: black;
+            color: white;
+        } */
       
         /* html, body{
             overflow: hidden;
@@ -61,11 +65,24 @@
     <!-- ./Preloader -->
     
     <!-- header -->
-    <header class="navbar-fixed-top" style="background-color: black;">
-        <nav>
+    <header class="navbar-fixed-top" >
+        <nav class="navbar navbar-inverse" style="background-color: black;">
+            
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <ul style="float:left;">
+                <li><a style="font-size:120%; font-weight:900; font-family: 'Maven Pro'; color:gainsboro;" href="#home">Hyunwook Kim</a></li>
+                </ul>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+<!--               
             <ul style="float:left;">
             <li><a style="font-size:120%; font-weight:900; font-family: 'Maven Pro'; color:gainsboro;" href="#home">Hyunwook Kim</a></li>
-            </ul>
+            </ul> -->
 
             <ul style="float: right;">
                 <li><a style="font-size:90%; font-weight:700; font-family: 'Maven Pro'; color:gainsboro" href="#">About</a></li>
@@ -75,8 +92,13 @@
                 <li><a style="font-size:90%; font-weight:700; font-family: 'Maven Pro'; color:gainsboro" href="interests.html">Interests & Achievements</a></li>
                
             </ul>
+        </div>
+            
         </nav>
     </header>
+
+
+    
     <!-- ./header -->
 
     <!-- home -->
@@ -106,13 +128,13 @@
             <div class="col-md-6" data-aos="fade-up">
                 <h1 class="size-50">About me</h1>
                 <div class="h-50"></div>
-                <p style="font-size: medium;">I am a forward-thinking data engineer with a solid foundation in statistical analysis, programming, and machine learning. Currently, I am pursuing a Master of Science in Computer Science at the University of South Carolina. My coursework covers various technical domains, including data structures, operating systems, neuro-symbolic AI, and database system design.</p>
-                <p style="font-size: medium;">My experience includes collaborating with the Artificial Intelligence Institute at the University of South Carolina, where I contributed to the development of an "Explainable Neuro-Symbolic Model for Ingredient Substitutions" and a "Full-Stack: Student Management for Piano Studios." I excel in both back-end development, including creating user management systems, and front-end design, where I craft user-friendly interfaces. My proficiency extends to MongoDB for efficient data management. Additionally, I focus on real-time big data engineering for sentiment analysis and have also worked on front-end development projects, demonstrating my expertise in HTML, CSS, and responsive web design.</p>
-                <p style="font-size: medium;">I hold certifications in AWS Cloud Practitioner and Natural Language Processing with Python, among others. Beyond academia and technology, I am actively engaged in volunteer work, which exemplifies my commitment to the community. With a diverse skill set and a passion for data-driven decision-making, I am well-prepared for a future in data engineering and artificial intelligence.</p> 
+                <p style="font-size: medium;">I am a forward-thinking data engineer with a solid foundation in statistical analysis, programming, and machine learning. Currently, I am pursuing a Master of Science in Computer Science at the University of South Carolina. <br> <br> My coursework covers various technical domains, including data structures, operating systems, neuro-symbolic AI, and database system design.</p>
+                <!-- <p style="font-size: medium;">My experience includes collaborating with the Artificial Intelligence Institute at the University of South Carolina, where I contributed to the development of an "Explainable Neuro-Symbolic Model for Ingredient Substitutions" and a "Full-Stack: Student Management for Piano Studios." I excel in both back-end development, including creating user management systems, and front-end design, where I craft user-friendly interfaces. My proficiency extends to MongoDB for efficient data management. Additionally, I focus on real-time big data engineering for sentiment analysis and have also worked on front-end development projects, demonstrating my expertise in HTML, CSS, and responsive web design.</p> -->
+                <!-- <p style="font-size: medium;">I hold certifications in AWS Cloud Practitioner and Natural Language Processing with Python, among others. Beyond academia and technology, I am actively engaged in volunteer work, which exemplifies my commitment to the community. With a diverse skill set and a passion for data-driven decision-making, I am well-prepared for a future in data engineering and artificial intelligence.</p>  -->
                 <br>
                 <a href="./Hyunwook_Kim_Resume.pdf" target="_blank"> <img src="img/resume.png" width="100" class="img-responsive" alt="" align="left" data-aos="fade-right" data-aos-delay="0" /> </a>
                 <!-- <a href="img/cv.pdf" target="_blank"> <img style="vertical-align:middle;margin:0px 10px" src="img/cv.png" width="76" class="img-responsive" alt="" align="left" data-aos="fade-right" data-aos-delay="0" /> </a> -->
-                <a href="https://github.com/hyunwookkim418" target="_blank"> <img style="vertical-align:middle;margin:0px 10px" src="img/icons/github.png" width="100" class="img-responsive" alt="" align="left"  data-aos="fade-right" data-aos-delay="0" /> </a>
+                <a href="https://github.com/hyunwookkim418" target="_blank" style="background-color: white;"> <img style="vertical-align:middle;margin:0px 10px" src="img/icons/github.png"  width="100" class="img-responsive" alt="" align="left"  data-aos="fade-right" data-aos-delay="0" /> </a>
                 <a href="https://www.linkedin.com/in/pkunjam/" target="_blank"> <img style="vertical-align:middle;margin:5px 10px" src="img/icons/linkedin.png" width="90" class="img-responsive" alt="" align="left"  data-aos="fade-right" data-aos-delay="0" /></a>
                 <!-- <a href="mailto:hyunwook@email.sc.edu" > <img style="vertical-align:middle;margin:5px 10px" src="img/icons/email.png" width="94" class="img-responsive" alt="" align="left"  data-aos="fade-right" data-aos-delay="0" /></a> -->
                 <!-- <div class="h-50"></div> <img src="img/Signature.svg" width="230" alt="" />
@@ -121,7 +143,7 @@
 
             <div class="col-md-6 about-img-div">
                 <!-- <div class="about-border" data-aos="fade-up" data-aos-delay=".5"></div> -->
-                <img  src="Hyunwook.png" width="400"  class="img-responsive" alt="" align="right" data-aos="fade-right" data-aos-delay="0" />
+                <img  style="margin-top: 5%;" src="./Hyunwook_uiversity.jpeg" width="400"  class="img-responsive" alt="" align="right" data-aos="fade-right" data-aos-delay="0" />
             </div>
 
         </div>
