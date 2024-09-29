@@ -9,7 +9,7 @@
     <meta property="og:description" content="My personal website">
     <meta property="og:image" content="https://imageupload.io/ib/NPNAXl8aUCOoEll_1695797129.png">
 
-    <title>File Download Process from Google Server to Client</title>
+    <title>Key Roles of a Web Application Server (WAS)</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,85 +80,67 @@
 </head>
 
     <div class="container">
-        <h1>File Download Process <br><span style="font-weight: normal;"> </span>from Google Server to Client</h1>
-        <p> Published on: Sept. 28, 2024 </p>
+        <h1>Key Roles of a Web Application Server (WAS)</h1>
+        <p> Published on: Sept. 29, 2024 </p>
 
         <h2>Overview</h2>
-        <p>When a client downloads a file from a Google server, the process involves both user mode and kernel mode operations, utilizing various components of the Transmission Control Protocol (TCP)/Internet Protocol (IP) protocol stack. By understanding this process, you can see how user mode, kernel mode, and the TCP/IP protocol stack work together to facilitate reliable data transmission from server to client.</p>
+        <p>A Web Application Server (WAS) acts as a mediator between the web server and the database server in a typical multi-tier architecture. The WAS serves as the backbone for application logic execution and middleware services, ensuring efficient communication, secure operations, and reliable performance between the web server and the database server.</p>
         
-        <h2>Server-Side Process</h2>
+        <h2>Application Logic Execution</h2>
         <ul>
-            <li><strong>File Retrieval</strong>
-                <ul>
-                    <li>Google server receives download request</li>
-                    <li>Locates file on storage device (e.g., hard drive, SSD)</li>
-                    <li>Reads file into user mode buffer</li>
-                </ul>
-            </li>
-            <li><strong>Data Preparation</strong>
-                <ul>
-                    <li>Transfers file to socket I/O buffer in user mode</li>
-                    <li>Prepares data for transmission to kernel mode</li>
-                </ul>
-            </li>
-            <li><strong>Segmentation and Packetization</strong>
-                <ul>
-                    <li>Divides large files into segments (TCP Layer 4)</li>
-                    <li>Maximum Transmission Unit (MTU) typically 1500 bytes</li>
-                    <li>Encapsulates segments into IP packets (IP Layer 3)</li>
-                </ul>
-            </li>
-            <li><strong>Transmission</strong>
-                <ul>
-                    <li>Sends IP packets to network driver in kernel mode</li>
-                    <li>Driver interfaces with hardware for network transmission</li>
-                    <li>Packets travel through network nodes (routers, switches) using Ethernet frames (Data Link Layer 2)</li>
-                </ul>
-            </li>
+            <li><strong>Role:</strong> Executes the business logic of the application.</li>
+            <li><strong>Details:</strong> Handles complex processing such as calculations, data transformation, and business rules, which are too intensive for a web server to handle efficiently.</li>
         </ul>
-
-        <h2>Client-Side Reception</h2>
+    
+        <h2>Middleware Services</h2>
         <ul>
-            <li><strong>Initial Reception</strong>
-                <ul>
-                    <li>Client's network interface receives packets</li>
-                    <li>Driver passes packets to TCP/IP stack in kernel mode</li>
-                </ul>
-            </li>
-            <li><strong>Reassembly</strong>
-                <ul>
-                    <li>TCP layer reassembles segments into original file (decapsulation)</li>
-                </ul>
-            </li>
-            <li><strong>Feedback Mechanism</strong>
-                <ul>
-                    <li>Client sends feedback to server for each received segment</li>
-                    <li>Includes acknowledgement number and window size</li>
-                    <li>Ensures reliable transmission and flow control</li>
-                </ul>
-            </li>
-            <li><strong>Data Handling in User Mode</strong>
-                <ul>
-                    <li>Reassembled data placed in socket I/O buffer</li>
-                    <li>Client process (identified by PID) creates and opens socket</li>
-                    <li>OS assigns TCP port number to socket</li>
-                </ul>
-            </li>
-            <li><strong>Final Data Access</strong>
-                <ul>
-                    <li>Data moved from socket I/O buffer to process buffer</li>
-                    <li>Client application accesses and reads the file</li>
-                </ul>
-            </li>
+            <li><strong>Role:</strong> Provides middleware services such as transaction management, messaging, and connectivity.</li>
+            <li><strong>Details:</strong> Ensures reliable communication between different application components and external systems, managing transactions across multiple resource managers.</li>
         </ul>
-
-        <h2>Key Concepts</h2>
+    
+        <h2>Session Management</h2>
         <ul>
-            <li><strong>User Mode vs Kernel Mode:</strong> User mode handles processes and sockets, while kernel mode manages TCP/IP ports and drivers.</li>
-            <li><strong>Socket Creation:</strong> Client process creates socket, OS assigns port number.</li>
-            <li><strong>Window Size:</strong> Available space in buffer, crucial for flow control.</li>
-            <li><strong>TCP Reliability:</strong> Achieved through acknowledgement numbers and window size feedback.</li>
+            <li><strong>Role:</strong> Manages user sessions, maintaining state information across multiple requests.</li>
+            <li><strong>Details:</strong> Keeps track of user interactions with the application, allowing for personalized experiences and stateful operations.</li>
         </ul>
+    
+        <h2>Resource Pooling</h2>
+        <ul>
+            <li><strong>Role:</strong> Manages resource pooling, including connection pools for databases and threads.</li>
+            <li><strong>Details:</strong> Optimizes resource usage by pooling database connections and other resources, reducing the overhead of establishing connections repeatedly.</li>
+        </ul>
+    
+        <h2>Load Balancing and Failover</h2>
+        <ul>
+            <li><strong>Role:</strong> Balances load among multiple instances of application services and provides failover capabilities.</li>
+            <li><strong>Details:</strong> Distributes incoming requests to ensure efficient use of resources and handles failover to provide high availability.</li>
+        </ul>
+    
+        <h2>Security</h2>
+        <ul>
+            <li><strong>Role:</strong> Enforces security policies and manages authentication and authorization.</li>
+            <li><strong>Details:</strong> Provides secure access to applications by managing user authentication, authorization, and encryption, often integrating with identity and access management systems.</li>
+        </ul>
+    
+        <h2>Integration</h2>
+        <ul>
+            <li><strong>Role:</strong> Facilitates integration with external services and systems.</li>
+            <li><strong>Details:</strong> Provides APIs and services for integrating with other applications, third-party services, and legacy systems, enabling interoperability.</li>
+        </ul>
+    
+        <h2>Scalability and Performance</h2>
+        <ul>
+            <li><strong>Role:</strong> Enhances scalability and performance of the application.</li>
+            <li><strong>Details:</strong> Allows applications to scale horizontally (adding more servers) and vertically (enhancing server capacity), often providing caching mechanisms to improve performance.</li>
+        </ul>
+    
+        <h2>Example Scenarios</h2>
+        <ul>
+            <li><strong>Dynamic Content Generation:</strong> When a user requests a dynamic page (e.g., user dashboard), the WAS executes the necessary business logic, retrieves data from the database server, and composes the response.</li>
+            <li><strong>Transaction Processing:</strong> For a shopping cart application, the WAS handles complex transaction logic ensuring that items added to the cart are processed correctly and reliably.</li>
+            <li><strong>Security Enforcement:</strong> In a banking application, the WAS manages user sessions securely, ensuring that only authenticated and authorized users can perform transactions.</li>
+        </ul>
+    
 
         <a href="../blogpost.html" class="back-link">Back to Blog</a>
     </div>
