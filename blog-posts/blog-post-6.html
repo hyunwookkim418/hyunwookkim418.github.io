@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Hyunwook Kim">
+    <meta property="og:url" content="https://hyunwookkim418.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hyunwook Kim">
+    <meta property="og:description" content="My personal website">
+    <meta property="og:image" content="https://imageupload.io/ib/NPNAXl8aUCOoEll_1695797129.png">
+
+    <title>RESTful API</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif; /* Set the font for the entire body */
+        }
+    
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+    
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+    
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+    
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+    <div class="container">
+        <h1>RESTful API</h1>
+        <p> Published on: Sept. 29, 2024 </p>
+
+        <h2>Overview</h2>
+        <p>RESTful API (Representational State Transfer API) is a way to build web services that allow different systems to communicate over the internet using standard HTTP methods.</p>
+        
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Resources:</strong> Data entities (like users, posts) are treated as resources.</li>
+            <li><strong>HTTP Methods:</strong> Uses standard HTTP methods to operate on resources:
+                <ul>
+                    <li><strong>GET:</strong> Retrieve data</li>
+                    <li><strong>POST:</strong> Create new data</li>
+                    <li><strong>PUT:</strong> Update existing data</li>
+                    <li><strong>DELETE:</strong> Remove data</li>
+                </ul>
+            </li>
+        </ul>
+    
+        <h2>Example API Endpoints</h2>
+        <ul>
+            <li><strong>GET /posts:</strong> Retrieve a list of blog posts.</li>
+            <li><strong>POST /posts:</strong> Create a new blog post.</li>
+            <li><strong>PUT /posts/1:</strong> Update the blog post with ID 1.</li>
+            <li><strong>DELETE /posts/1:</strong> Delete the blog post with ID 1.</li>
+        </ul>
+    
+        <h2>Why Use RESTful API?</h2>
+        <ul>
+            <li><strong>Simple and standardized:</strong> Easy to use and integrate.</li>
+            <li><strong>Stateless:</strong> Each request from the client to the server must contain all the information needed to understand and process the request.</li>
+        </ul>
+    
+        <h2>How It’s Used</h2>
+        <ul>
+            <li>Frontend apps (like websites or mobile apps) communicate with the backend (servers) using RESTful APIs to perform operations like fetching data or submitting forms.</li>
+        </ul>
+
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
