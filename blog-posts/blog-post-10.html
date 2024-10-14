@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Hyunwook Kim">
+    <meta property="og:url" content="https://hyunwookkim418.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hyunwook Kim">
+    <meta property="og:description" content="My personal website">
+    <meta property="og:image" content="https://imageupload.io/ib/NPNAXl8aUCOoEll_1695797129.png">
+
+    <title>Wide Area Networks (WANs)</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif; /* Set the font for the entire body */
+        }
+    
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+    
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+    
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+    
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        h3 {
+            color: #34495e;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+    <div class="container">
+        <h1>Wide Area Networks (WANs)</h1>
+        <p> Published on: Oct. 13, 2024 </p>
+
+        <h2>Overview</h2>
+        <p>Historically, 80% of network traffic remained within local area networks (LANs) in the early 1990s, but this has shifted to 80% exiting to wide area networks (WANs) today due to the rise of cloud-based applications. LANs operate at the hardware level using MAC addresses, while WANs function at the software level with IP addresses, leading to distinct differences in connection methods and traffic management.</p>
+        
+        <h2>Historical Perspective on Networking</h2>
+    <p>In the early 1990s, it was commonly said that 80% of network traffic stayed inside the local area network (LAN), while only 20% went out to the wide area network (WAN). Because of this, large organizations often had small external connections, such as 1.44 megabits per second, which was sufficient for their needs. With only 20% of their traffic crossing the WAN, a slower and cheaper low bandwidth WAN connection was adequate.</p>
+    <p>Today, the principle has been reversed. Now, around 80% of network traffic goes out of the local network, with only 20% staying within the LAN. Consider your daily computer use at work, school, or home. Are you using cloud-based applications like Google Drive, Dropbox, Google Docs, or Office 365? These services exist outside of your local network, and a significant portion of your day may involve activities such as watching online videos, scrolling through social media feeds, and making Voice over Internet Protocol (VoIP) calls. All these activities require data to be sent over the WAN, not just within the LAN.</p>
+
+    <h2>The Distinction Between LAN and WAN</h2>
+    <p>LAN (Local Area Network) and WAN (Wide Area Network) are crucial concepts in networking. While LAN refers to local areas and WAN to wide areas by definition, the distinction can sometimes seem vague due to the lack of a clear standard for the distance that differentiates them. Instead, we can use the OSI (Open Systems Interconnection) 7-layer model to better understand their differences.</p>
+
+    <h3>Characteristics of LAN and WAN</h3>
+    <p>LAN (Local Area Network) operates primarily at the hardware level, utilizing the Physical and Data Link Layers (L1 and L2). It typically employs Ethernet cables and 48-bit MAC addresses for communication. In a LAN, broadcast traffic can reach all devices within the network, making it ideal for smaller, localized environments such as homes, offices, or campus settings.</p>
+    <p>On the other hand, WAN (Wide Area Network) operates at the software level, involving the Network Layer (L3) and above. WANs use IP addresses for communication across broader geographic areas. Broadcast traffic is generally limited and managed differently to avoid congestion over large distances. In summary, while LANs are associated with physical connectivity, like Ethernet cables, WANs often involve logical connections that can span cities, countries, or even continents.</p>
+
+    <h3>Comparison of LAN and WAN Characteristics</h3>
+    <table>
+        <tr>
+            <th>Aspect</th>
+            <th>LAN</th>
+            <th>WAN</th>
+        </tr>
+        <tr>
+            <td>Operates</td>
+            <td>Hardware (HW)</td>
+            <td>Software (SW)</td>
+        </tr>
+        <tr>
+            <td>Connection</td>
+            <td>Physical through Ethernet cables</td>
+            <td>Logical (=virtual)</td>
+        </tr>
+        <tr>
+            <td>OSI Layers Involved</td>
+            <td>Physical and Data Link layers (L1 and L2)</td>
+            <td>Network layer and above (L3 and above)</td>
+        </tr>
+        <tr>
+            <td>Addressing</td>
+            <td>Uses MAC addresses</td>
+            <td>Uses IP addresses</td>
+        </tr>
+        <tr>
+            <td>Broadcast Traffic Capability</td>
+            <td>Broadcast traffic can reach all devices</td>
+            <td>Broadcast traffic is limited and managed</td>
+        </tr>
+    </table>
+    
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
