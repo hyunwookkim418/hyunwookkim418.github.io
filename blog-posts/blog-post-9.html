@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Hyunwook Kim">
+    <meta property="og:url" content="https://hyunwookkim418.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hyunwook Kim">
+    <meta property="og:description" content="My personal website">
+    <meta property="og:image" content="https://imageupload.io/ib/NPNAXl8aUCOoEll_1695797129.png">
+
+    <title>Subnetting</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif; /* Set the font for the entire body */
+        }
+    
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+    
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+    
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+    
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+    <div class="container">
+        <h1>Subnetting</h1>
+        <p> Published on: Oct. 13, 2024 </p>
+
+        <h2>Overview</h2>
+        <p>Subnetting is a networking technique that divides a larger network into smaller sub-networks (subnets) to optimize IP address usage, enhancing efficiency by allowing for more precise allocation of addresses. While it helps reduce wastage of IP addresses, particularly in scenarios where fewer addresses are needed, careful consideration is required to avoid losing potential usable IPs, such as network and broadcast IDs.</p>
+        
+        <h2>Key Features</h2>
+        <ul>
+            <li>Today, I'm going to discuss subnetting, a crucial concept in networking. To grasp subnetting, a solid understanding of IP addresses and subnet masks is essential. There are two types of IP addresses: IPv4, which uses 32 bits, and IPv6, which uses 128 bits. An IP address consists of a Network ID and a Host ID, and its subnet mask is assigned accordingly. For example, in a C class IP address like 192.168.0.10, where C class uses 24 bits for the Network ID and 8 bits for the Host ID, the subnet mask (255.255.255.0) determines the Network ID.</li>
+            <br>
+            <li>Now, let's delve into subnetting itself. Subnetting involves creating subnetworks (subnets) within a larger network. Consider an IP address like 192.168.0.10 in a C class network with a Network ID of 24 bits and 8 bits for the Host ID. This setup allows for 256 possible Host IDs, excluding the network and broadcast IDs (00000000 and 11111111, respectively), leaving us with 254 usable Host IDs.</li>
+            <br>
+            <li>Why do we need subnetting? Let's consider a situation. If a client only requires 100 IP addresses and the ISP provides 254 Host IDs, 154 addresses go unused. To optimize efficiency, subnetting can be employed. By borrowing a bit from the Host ID and allocating it to the Network ID, the number of Network IDs doubles while halving the available Host IDs. In this case, the Host IDs reduce to 126, minimizing wasted IP addresses.</li>
+            <br>
+            <li>Despite its advantages, subnetting does have drawbacks. With each subdivision, certain IP addresses become unusable—for instance, the network and broadcast IDs. For every additional bit used for Network IDs instead of Host IDs, we lose a significant number of potential IP addresses.</li>
+            <br>
+            <li>In summary, subnetting enhances network efficiency by allowing for more precise allocation of IP addresses, though it requires careful consideration to minimize wastage.</li>          
+        </ul>
+    
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
