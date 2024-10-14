@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Hyunwook Kim">
+    <meta property="og:url" content="https://hyunwookkim418.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hyunwook Kim">
+    <meta property="og:description" content="My personal website">
+    <meta property="og:image" content="https://imageupload.io/ib/NPNAXl8aUCOoEll_1695797129.png">
+
+    <title>Cone NAT</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif; /* Set the font for the entire body */
+        }
+    
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+    
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+    
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+    
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+    <div class="container">
+        <h1>Cone NAT</h1>
+        <p> Published on: Oct. 13, 2024 </p>
+
+        <h2>Overview</h2>
+        <p>Cone NAT (Network Address Translation) includes three types: Full Cone NAT, which allows any external server to initiate communication after an internal connection, IP Restricted Cone NAT, which restricts inbound connections to previously communicated IPs, and Port Restricted Cone NAT, which further limits access to specific IPs and ports. While Full Cone NAT offers the most flexibility, it poses security risks, whereas the other two types enhance security at the cost of flexibility.</p>
+        
+        <h2>Key Features</h2>
+        <ul>
+            <li>Today, we'll explore three types of Cone NAT (Network Address Translation): Full cone, IP restricted cone, and Port restricted cone. These NAT types play crucial roles in managing communication between local networks and the Internet, each with varying degrees of flexibility and security.</li>
+            <br>
+            <li>Let's start with Full cone NAT. Imagine a scenario where a PC on a local network (IP: 192.168.0.10, port 3000) needs to communicate with two web servers: Server A (IP: 15.15.15.15, port 80) and Server B (IP: 9.9.9.9, port 80). The PC's local IP isn't globally accessible, so it uses the NAT gateway's global IP (3.3.3.3, port 8080). In Full cone NAT, once communication is initiated from the PC, any external server can initiate inbound communication through the same NAT entry. This capability, known as hole punching, though convenient, poses security risks due to its openness.</li>
+            <br>
+            <li>Moving on to IP restricted cone NAT, stricter rules apply based on IP addresses. Here, only servers with IP addresses that the NAT gateway has previously communicated with can initiate inbound connections, regardless of their port numbers. This provides a level of security by limiting which external IPs can access the local network.</li>
+            <br>
+            <li>Lastly, Port restricted cone NAT imposes the highest restrictions. It allows inbound connections only from remote IPs and ports that the local network has previously communicated with. If the port numbers don't match exactly, access is denied, enhancing security but potentially limiting flexibility.</li>
+            <br>
+            <li>In summary, while Full cone NAT offers the most flexibility, it comes with the lowest security due to hole punching. IP restricted cone NAT enhances security by restricting access based on IP addresses, while Port restricted cone NAT provides the highest security by also verifying port numbers. Choosing the right type of NAT depends on balancing security needs with communication requirements. This concludes our overview of Cone NAT types. Thank you for your attention.</li>          
+        </ul>
+    
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
