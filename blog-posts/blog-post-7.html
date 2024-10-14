@@ -9,7 +9,7 @@
     <meta property="og:description" content="My personal website">
     <meta property="og:image" content="https://imageupload.io/ib/NPNAXl8aUCOoEll_1695797129.png">
 
-    <title>RESTful API</title>
+    <title>Symmetric NAT</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,9 +88,13 @@
         <h2>Key Features</h2>
         <ul>
             <li>Today, we're focusing on symmetric NAT, one of the two types of structures used in router internal configurations, alongside Cone NAT. Before delving into these classifications, it's essential to understand NAT, which stands for Network Address Translation.</li>
+            <br>
             <li>Symmetric NAT is notable for assigning a unique external port number for each TCP session. Imagine our PC needs to communicate with web server A, with a router and the internet in between. The router's role here is to translate the local IP address and port number of our PC into its private (local) IP address and a global IP address, assigning a specific external port number for each session.</li>
+            <br>
             <li>For instance, if our local IP is 192.168.0.10 and port number is 3000, the router translates this to the NAT gateway's global IP (e.g., 3.3.3.3) and assigns an external port number (e.g., 23000). Consequently, when our PC communicates with Web Server A, it appears to be communicating from IP 3.3.3.3 and port 23000.</li>
+            <br>
             <li>In symmetric NAT, the router translates both IP and TCP headers. Outbound communication events from our PC to external web servers are recorded in the NAT table, detailing the communication's specifics. However, inbound communication, such as from the web server back to our PC's internal network, does not typically update the NAT table.</li>
+            <br>
             <li>Symmetric NAT is primarily implemented for security reasons. Symmetric NAT provides a higher level of security compared to other NAT types like Full Cone NAT or Restricted Cone NAT. It does this by dynamically mapping each internal (private) IP address and port combination to a unique external (public) IP address and port number for each outgoing session. This dynamic mapping makes it more difficult for external entities to predict or initiate connections to internal devices, thereby enhancing network security.</li>          
         </ul>
     
