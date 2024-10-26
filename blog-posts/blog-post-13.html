@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Hyunwook Kim">
+    <meta property="og:url" content="https://hyunwookkim418.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hyunwook Kim">
+    <meta property="og:description" content="My personal website">
+    <meta property="og:image" content="https://imageupload.io/ib/NPNAXl8aUCOoEll_1695797129.png">
+
+    <title>Routers</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif; /* Set the font for the entire body */
+        }
+    
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+    
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+    
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+    
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .example {
+            background-color: #e7f3fe;
+            border-left: 4px solid #0056b3;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+    <div class="container">
+        <h1>Routers</h1>
+        <p> Published on: Oct. 26, 2024 </p>
+
+        <h2>Overview</h2>
+        <p>Routers are devices that combine the functions of a Layer 2 switch and a Layer 3 router. They enable multiple devices to access the internet through a single global IP address. Each router typically has two types of IP addresses: a private IP and a public IP.</p>
+        
+        <h1>IP Address Assignment and NAT</h1>
+
+        <div class="section">
+            <h2>Methods for Assigning IP Addresses</h2>
+            <ul>
+                <li><strong>Static IP Addressing:</strong> In this method, IP addresses are manually assigned and configured on each device.</li>
+                <li><strong>Dynamic Host Configuration Protocol (DHCP):</strong> This method allows routers to automatically assign private IP addresses to devices on the network. The router acts as a DHCP server and dynamically allocates IP addresses from a predefined range.</li>
+            </ul>
+        </div>
+    
+        <div class="section">
+            <h2>Network Address Translation (NAT)</h2>
+            <p>One key feature of routers is Network Address Translation (NAT). NAT enables a router to maintain a NAT table, which records both inbound and outbound traffic. This table allows the router to keep track of which internal IP addresses and ports are associated with which external IP addresses and ports.</p>
+            
+            <h3>How NAT Works</h3>
+            <p>Here’s how NAT works in practice:</p>
+            <ol>
+                <li>When a device, such as a PC, wants to access a website, it sends a request to the router. For example, if your PC’s IP is <strong>192.168.0.10</strong> and you want to visit Google's website with an IP of <strong>5.5.5.5</strong>, your router will need to manage this request.</li>
+                <li>The router assigns an external port number (e.g., <strong>20000</strong>) and records an entry in the NAT table:
+                    <div class="example">
+                        <ul>
+                            <li>Local IP: 192.168.0.10</li>
+                            <li>Local Port: 3000</li>
+                            <li>Remote IP: 5.5.5.5</li>
+                            <li>Remote Port: 80</li>
+                            <li>External Port: 20000</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>The router modifies the outbound IP packet as follows:
+                    <div class="example">
+                        <ul>
+                            <li>Source IP: Public IP of the router (e.g., 3.3.3.3)</li>
+                            <li>Source Port: 20000</li>
+                            <li>Destination IP: 5.5.5.5</li>
+                            <li>Destination Port: 80</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>When the server (Google) responds, it sends a packet back to the router with:
+                    <div class="example">
+                        <ul>
+                            <li>Source IP: 5.5.5.5</li>
+                            <li>Source Port: 80</li>
+                            <li>Destination IP: Public IP of the router (e.g., 3.3.3.3)</li>
+                            <li>Destination Port: 20000</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>The router looks up the NAT table, finds the matching entry, and translates the packet’s destination back to the internal IP address and port:
+                    <div class="example">
+                        <ul>
+                            <li>Source IP: 5.5.5.5</li>
+                            <li>Source Port: 80</li>
+                            <li>Destination IP: 192.168.0.10</li>
+                            <li>Destination Port: 3000</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+            <p>By doing this, the router ensures that the incoming packet is correctly routed back to the originating device within the local network. This process helps manage internal and external traffic and also adds a layer of security by controlling which devices can communicate with external networks.</p>
+        </div>
+    
+    
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
