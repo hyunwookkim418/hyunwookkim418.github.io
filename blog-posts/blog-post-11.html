@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Hyunwook Kim">
+    <meta property="og:url" content="https://hyunwookkim418.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hyunwook Kim">
+    <meta property="og:description" content="My personal website">
+    <meta property="og:image" content="https://imageupload.io/ib/NPNAXl8aUCOoEll_1695797129.png">
+
+    <title>Cloud Computing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif; /* Set the font for the entire body */
+        }
+    
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+    
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+    
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+    
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .service {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .example {
+            font-style: italic;
+            color: #555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+    <div class="container">
+        <h1>Cloud Computing</h1>
+        <p> Published on: Oct. 26, 2024 </p>
+
+        <h2>Overview</h2>
+        <p>This post will discuss the fundamental concepts of cloud computing, focusing on IaaS, PaaS, SaaS, and FaaS, and their interrelationships. Traditionally, we relied on physical servers—computers with CPU, memory, and storage. Cloud computing expands this idea by offering virtual zones of physical computers, often without end-users being aware of their physical nature.</p>
+        
+        <div class="service">
+            <h2>IaaS (Infrastructure as a Service)</h2>
+            <p><strong>Description:</strong> IaaS offers virtualized computing resources over the internet. It provides fundamental computing resources like virtual machines, storage, and networks, allowing users to manage and scale these resources as needed.</p>
+            <p><strong>Examples:</strong> <span class="example">Amazon Web Services (AWS) EC2, Microsoft Azure Virtual Machines, Google Compute Engine.</span></p>
+            <p><strong>Relationship:</strong> IaaS is the foundational layer that supports PaaS and SaaS. It provides the basic infrastructure that PaaS platforms and SaaS applications rely on.</p>
+        </div>
+    
+        <div class="service">
+            <h2>PaaS (Platform as a Service)</h2>
+            <p><strong>Description:</strong> PaaS provides a platform allowing customers to develop, run, and manage applications without dealing with the underlying infrastructure. It offers tools and services for application development and deployment.</p>
+            <p><strong>Examples:</strong> <span class="example">Google App Engine, Microsoft Azure App Services, Heroku.</span></p>
+            <p><strong>Relationship:</strong> PaaS is built on top of IaaS. It abstracts and simplifies the underlying infrastructure management, allowing developers to focus on building and deploying applications.</p>
+        </div>
+    
+        <div class="service">
+            <h2>SaaS (Software as a Service)</h2>
+            <p><strong>Description:</strong> SaaS delivers software applications over the internet, on a subscription basis. Users access the software through a web browser, without needing to install or maintain it on their local machines.</p>
+            <p><strong>Examples:</strong> <span class="example">Google Workspace, Microsoft 365, Salesforce.</span></p>
+            <p><strong>Relationship:</strong> SaaS sits at the top of the cloud service stack. It relies on PaaS and IaaS to function, as these lower layers provide the underlying infrastructure and platforms necessary for SaaS applications to run.</p>
+        </div>
+    
+        <div class="service">
+            <h2>FaaS (Function as a Service)</h2>
+            <p><strong>Description:</strong> FaaS is a serverless computing model where users can run code in response to events without managing servers. The cloud provider handles the infrastructure and scaling automatically. For instance, AWS Lambda enables users to upload code snippets that run in response to triggers, automatically scaling based on demand.</p>
+            <p><strong>Examples:</strong> <span class="example">AWS Lambda, Azure Functions, Google Cloud Functions.</span></p>
+            <p><strong>Relationship:</strong> FaaS is considered a subset of PaaS and is sometimes seen as a higher abstraction level. It relies on underlying IaaS resources and can be used to build applications that might be part of a broader PaaS or SaaS solution.</p>
+        </div>
+    
+        <h2>Summary</h2>
+        <p>IaaS provides the basic infrastructure (compute, storage, networking). PaaS offers a platform to build and deploy applications, built on top of IaaS. SaaS delivers end-user applications, built on both PaaS and IaaS. FaaS is a serverless computing model that abstracts infrastructure management, often used within a PaaS context.</p>
+    
+    
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
