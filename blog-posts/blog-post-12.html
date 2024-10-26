@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Hyunwook Kim">
+    <meta property="og:url" content="https://hyunwookkim418.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hyunwook Kim">
+    <meta property="og:description" content="My personal website">
+    <meta property="og:image" content="https://imageupload.io/ib/NPNAXl8aUCOoEll_1695797129.png">
+
+    <title>Network Segmentation Enhanced Security</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif; /* Set the font for the entire body */
+        }
+    
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+    
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+    
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+    
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+    <div class="container">
+        <h1>Network Segmentation Enhanced Security</h1>
+        <p> Published on: Oct. 26, 2024 </p>
+
+        <h2>Overview</h2>
+        <p>In environments where stringent security measures are crucial, such as public institutions, users often access multiple PCs, raising significant security concerns. The risk of a virus compromising both internal and external networks necessitates effective solutions like network segmentation. By isolating computing environments either physically or logically, organizations can enhance security and control access to external resources, mitigating potential risks.</p>
+        
+        <p>In environments where stringent security measures are imperative, such as public institutions, it is common for a single user to access multiple PCs. This practice raises significant security concerns, especially in networks where both internal (private office) and external (public internet) access are possible.</p>
+        <p>Typically, a firewall (F/W) is deployed between the internal and external networks to protect the internal network from external threats. However, if a user with access to both networks becomes infected with a virus, it could compromise both the internal and external networks, causing widespread damage.</p>
+    </div>
+
+    <div>
+        <h2>Network Segmentation</h2>
+        <p>To address this challenge, the concept of network segmentation, or "network isolation," was developed. This approach involves physically or logically separating a single user into two distinct computing environments.</p>
+        
+        <h3>Physical Network Segmentation</h3>
+        <p>In this method, two separate physical computers are assigned to the user. PC1 is restricted to accessing internal servers only, while PC2 is allowed to connect to the external internet. Importantly, PC1 and PC2 are completely isolated from each other, preventing any communication between them.</p>
+
+        <h3>Logical Network Segmentation</h3>
+        <p>Alternatively, logical segmentation involves virtualization. The user operates within a closed-off environment (e.g., Windows' closed network). Internal network access is permitted, but to connect externally, the user must access the internet via a virtual machine (VM). This setup ensures that external connectivity is mediated through a controlled environment, often employing sandboxing technologies.</p>
+        <p>For instance, connecting to a Virtual Desktop Infrastructure (VDI) hosted in the cloud allows users to access the external internet securely. This approach eliminates the need for a VPN when accessing external resources, enhancing security by limiting network exposure.</p>
+    </div>
+
+    <div>
+        <h2>Restricted Network Interconnection</h2>
+        <p>Understanding concepts like restricted network interconnection is also crucial. This term refers to the controlled linkage between networks, ensuring connectivity is granted only under specific, monitored conditions.</p>
+    </div>
+
+    <div>
+        <h2>Summary</h2>
+        <p>In summary, network segmentation through physical or logical means provides a robust solution to safeguarding internal networks against potential compromises originating from dual-access users. This approach not only enhances security but also facilitates controlled access to external resources, thereby mitigating risks effectively.</p>
+    </div>
+    
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
