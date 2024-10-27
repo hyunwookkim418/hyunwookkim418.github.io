@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Hubs vs. Routers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        h3 {
+            color: #333;
+        }
+        p, ul, table {
+            margin: 10px 0;
+        }
+        .section {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Switch Hubs vs. Routers</h1>
+
+    <div class="section">
+        <h2>1. Switch Hub</h2>
+        <ul>
+            <li><strong>Function:</strong> A Switch Hub is used to expand the number of devices that can connect to a network.</li>
+            <li><strong>NAT (Network Address Translation):</strong> No. A Switch Hub does not perform NAT. It operates only at Layer 2 (Data Link Layer) and does not handle IP addressing or traffic routing.</li>
+            <li><strong>DHCP (Dynamic Host Configuration Protocol):</strong> No. A Switch Hub does not assign IP addresses to devices. IP address management is outside its scope.</li>
+            <li><strong>WAN Port:</strong> No. A Switch Hub does not have a WAN port. It only has Ethernet ports for connecting devices within the local network.</li>
+            <li><strong>MAC Address Table:</strong> Yes. A Switch Hub uses a MAC address table to manage and direct traffic between devices. It forwards data only to the specific device based on its MAC address, rather than broadcasting to all connected devices.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>2. Router</h2>
+        <ul>
+            <li><strong>Function:</strong> A Router is used to connect different networks and route traffic between them. It also provides additional functionalities such as NAT and DHCP.</li>
+            <li><strong>NAT (Network Address Translation):</strong> Yes. A Router performs NAT, which allows multiple devices on a local network to share a single public IP address.</li>
+            <li><strong>DHCP (Dynamic Host Configuration Protocol):</strong> Yes. A Router can act as a DHCP server, automatically assigning IP addresses to devices within the local network.</li>
+            <li><strong>WAN Port:</strong> Yes. A Router has a WAN port for connecting to the internet or an external network, as well as LAN ports for connecting internal devices.</li>
+            <li><strong>IP Address:</strong> Yes. A Router manages IP addresses, including assigning private IPs to devices on the local network and handling public IPs for external communication.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Comparison and Usage</h2>
+        <ul>
+            <li><strong>Connecting Switch Hubs to Routers:</strong> Switch Hubs are commonly connected to Routers to extend the number of devices that can connect to a network. This setup allows for additional devices to be added to the network while keeping costs low, as Switch Hubs are generally more affordable than Routers.</li>
+            <li><strong>Historical Context:</strong> In the past, simple hubs (often called "dumb hubs") were used, which did not have the functionality of switches. These hubs broadcasted data to all connected devices, leading to inefficiencies. Modern Switch Hubs use MAC address tables to communicate with specific devices, improving network performance and efficiency.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Switch Hub</th>
+                    <th>Router</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Function</td>
+                    <td>Expands the number of devices within a network</td>
+                    <td>Connects different networks and routes traffic</td>
+                </tr>
+                <tr>
+                    <td>NAT (Network Address Translation)</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>DHCP (Dynamic Host Configuration Protocol)</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>WAN Port</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>MAC Address Table</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>IP Address Management</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Typical Usage</td>
+                    <td>Connects multiple devices within a local network</td>
+                    <td>Connects internal network to the internet or external networks</td>
+                </tr>
+                <tr>
+                    <td>Historical Context</td>
+                    <td>Simple hubs used to broadcast data to all devices; modern switch hubs use MAC address tables</td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
