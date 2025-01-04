@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Machine Learning">
+    <meta property="og:url" content="https://example.com/machine-learning">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Machine Learning">
+    <meta property="og:description" content="Understanding Machine Learning and its Key Concepts">
+    <meta property="og:image" content="https://example.com/image.png">
+
+    <title>Machine Learning</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Machine Learning</h1>
+
+        <h2>Definition of Machine Learning</h2>
+        <p>Machine learning is a method in which a system learns from data to make predictions without being explicitly programmed for each task.</p>
+
+        <h2>Types of Machine Learning</h2>
+        <ul>
+            <li><strong>Supervised Machine Learning:</strong>
+                <p>This approach uses labeled data, meaning the training dataset contains input-output pairs where the output (or label) is known. For example, if you have a dataset where each customer is labeled as “high spender” or “bargain hunter,” then you have labeled data. The labels are the output values that the model aims to predict.</p>
+            </li>
+            <li><strong>Unsupervised Machine Learning:</strong>
+                <p>This approach uses unlabeled data, meaning the training dataset does not contain any labels or predefined outputs. For example, in your customer purchase data, you know the details of the transactions (amount spent, items bought, etc.), but you don’t have information on which customers are “high spenders” or “bargain hunters.” Thus, you don’t have predefined categories or outcomes (output values) provided with the data.</p>
+            </li>
+        </ul>
+
+        <h2>Key Concepts in Machine Learning: HCG</h2>
+        <p>For machine learning, it's important to remember three key concepts, often abbreviated as HCG: Hypothesis, Cost Function, and Gradient Descent Algorithm. Let’s explore these:</p>
+
+        <h3>1. Hypothesis</h3>
+        <p>To predict the output value <em>Y^</em>, we need a hypothesis. Assuming that all human and natural phenomena can be explained using a linear model, we can express the hypothesis as:</p>
+        <p><em>H(x) = Wx + b</em>, where:</p>
+        <ul>
+            <li><strong>W:</strong> The weight</li>
+            <li><strong>b:</strong> The bias</li>
+        </ul>
+
+        <h3>2. Cost Function</h3>
+        <p>Consider the dataset <em>X = [1, 2, 3]</em> with corresponding labels <em>Y = [1, 2, 3]</em>. After setting an initial hypothesis, we need to calculate the cost (or loss). The cost function measures the error, which is the difference between the predicted values and the actual data values.</p>
+        <p>The resulting cost function resembles a bowl-shaped 2D graph, with the minimum cost indicating an optimal hypothesis. In this graph, our goal is to find the weight and bias values at the global minimum, where the slope of the graph approaches zero.</p>
+
+        <h3>3. Gradient Descent Algorithm</h3>
+        <p>To find the point where the slope is zero, we use differentiation. We iteratively update our weight values until we reach the global minimum. The update rule for the weights is given by:</p>
+        <p><em>W = W - α * (dJ/dW)</em>, where:</p>
+        <ul>
+            <li><strong>α:</strong> The learning rate, which determines the step size during the update process</li>
+        </ul>
+
+        <h4>Formal Definition of Gradient Descent Algorithm</h4>
+        <p>The gradient descent algorithm is an iterative optimization algorithm used to minimize the cost function in machine learning. The basic steps are:</p>
+        <ul>
+            <li><strong>Initialization:</strong> Start with initial guesses for the parameters (weights and bias).</li>
+            <li><strong>Compute the Gradient:</strong> Calculate the gradient of the cost function with respect to the parameters.</li>
+            <li><strong>Update the Parameters:</strong> Adjust the parameters in the opposite direction of the gradient by a factor of the learning rate.</li>
+            <li><strong>Repeat:</strong> Continue this process until the change in the cost function is below a specified threshold or until a fixed number of iterations is reached.</li>
+        </ul>
+
+        <p>In summary, gradient descent helps us find the optimal parameters that minimize the cost function, leading to better predictions by our machine learning model.</p>
+
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+</body>
+
+</html>
