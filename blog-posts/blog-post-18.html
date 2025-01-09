@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Neural Network Perceptron">
+    <meta property="og:url" content="https://example.com/neural-network-perceptron">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Neural Network Perceptron">
+    <meta property="og:description" content="Understanding Neural Network Perceptrons and XOR Problem Solving">
+    <meta property="og:image" content="https://example.com/image.png">
+
+    <title>Neural Network Perceptron</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Neural Network Perceptron</h1>
+
+        <h2>Bitwise Operations and Machine Learning</h2>
+        <p>Bitwise operations like AND and OR can be predicted using a linear regression model in machine learning. However, the XOR problem cannot be solved with a simple linear model. To address the XOR problem, we can use a Deep Neural Network (DNN) with a perceptron.</p>
+
+        <h2>Perceptron Overview</h2>
+        <p>A perceptron is a mathematical model that takes several binary inputs, multiplies them by weights, sums them up, and then applies an activation function to produce a single binary output.</p>
+
+        <p><strong>For example:</strong></p>
+        <ul>
+            <li>Input: X1, X2 = [0, 0]<br>
+                Weights: W = [5, 5], Bias: b = -8 &rarr; sigmoid(-8) &rarr; Output: Y1 = 0
+            </li>
+            <li>Input: X1, X2 = [0, 0]<br>
+                Weights: W = [-7, -7], Bias: b = 3 &rarr; sigmoid(3) &rarr; Output: Y2 = 1
+            </li>
+            <li>Input: Y1, Y2 = [0, 1]<br>
+                Weights: W = [-11, -11], Bias: b = 6 &rarr; sigmoid(-5) &rarr; Final Output: Ȳ = 0
+            </li>
+        </ul>
+
+        <h2>Example: Solving XOR with a Neural Network</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>X1</th>
+                    <th>X2</th>
+                    <th>Y1</th>
+                    <th>Y2</th>
+                    <th>Ȳ</th>
+                    <th>XOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>When the inputs are X1 = 0 and X2 = 0, the perceptron calculates the outputs Y1 and Y2 based on the given weights and biases. The final output Ȳ is 0, which matches the XOR output. For inputs X1 = 0 and X2 = 1, the final output Ȳ is 1, which aligns with the XOR result. Similarly, for X1 = 1 and X2 = 0, the final output Ȳ is 1, consistent with the XOR output. Lastly, for X1 = 1 and X2 = 1, the final output Ȳ is 0, again matching the XOR output. This example demonstrates how a neural network can solve the XOR problem, which a simple linear model cannot address.</p>
+
+        <h2>Insight from Machine Learning</h2>
+        <p>Machine learning is a branch of artificial intelligence that enables algorithms to uncover hidden patterns within datasets. This allows them to make predictions on new, similar data without the need for explicit programming for each specific task. As seen in the example above, there is no explicit programming related to XOR operations; instead, the model learns from the data, identifies patterns, and makes accurate predictions.</p>
+
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+</body>
+
+</html>
