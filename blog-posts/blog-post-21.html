@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Cross Entropy Loss Function">
+    <meta property="og:url" content="https://example.com/cross-entropy">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cross Entropy Loss Function">
+    <meta property="og:description" content="Understanding the cross-entropy loss function and its applications in deep learning.">
+    <meta property="og:image" content="https://example.com/image.png">
+
+    <title>Cross Entropy Loss Function</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cross Entropy Loss Function</h1>
+
+        <h2>Introduction</h2>
+        <p>To understand the cross-entropy loss function, we first need to grasp three concepts from information theory: surprisal, expected value, and entropy. The cross-entropy loss function is derived from the concept of entropy and is adapted for use in deep neural networks.</p>
+
+        <h2>Key Concepts</h2>
+        <ul>
+            <li><strong>Surprisal:</strong> Denoted as the negative logarithm of the probability of an event, log(1/P(x)), where P(x) is the probability. The logarithm is used to simplify large numbers and allows addition instead of multiplication, which is computationally faster.</li>
+            <li><strong>Expected Value:</strong> Calculated by multiplying the random variable by its probability, given by E(x) = ∑x ⋅ P(x).</li>
+            <li><strong>Entropy:</strong> The expected value of surprisal, expressed as H(x) = ∑log(1/P(x)) ⋅ P(x).</li>
+        </ul>
+
+        <h2>Why Cross-Entropy?</h2>
+        <p>In general, the cross-entropy loss function is preferred over the mean squared error (MSE) loss function for deep neural networks. The loss from cross-entropy is typically larger than the loss from MSE, resulting in a steeper slope for the cross-entropy loss graph. This makes the minimization of loss more effective with cross-entropy.</p>
+
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+</body>
+
+</html>
