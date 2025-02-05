@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Comprehensive Guide to Transformer: Attention is All We Need">
+    <meta property="og:url" content="https://example.com/transformer">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Comprehensive Guide to Transformer: Attention is All We Need">
+    <meta property="og:description" content="A detailed explanation of the Transformer model, highlighting parallelization, multi-head attention, and step-by-step encoding-decoding processes.">
+    <meta property="og:image" content="https://example.com/image.png">
+
+    <title>Comprehensive Guide to Transformer: Attention is All We Need</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Comprehensive Guide to Transformer: Attention is All We Need</h1>
+
+        <h2>Step 1: Input Processing</h2>
+        <p>The Transformer begins with constructing a dataset, extracting words, and building a vocabulary. Each word is assigned a unique index, simplifying the tokenization process.</p>
+
+        <h2>Step 2: Input Embedding</h2>
+        <p>Words are mapped into dense numerical representations. These embeddings capture syntactic and semantic properties of words and provide an effective input for the model.</p>
+
+        <h2>Step 3: Positional Encoding</h2>
+        <p>Since Transformers do not have recurrence, positional encodings are added to input embeddings to retain word order information.</p>
+
+        <h2>Step 4: Multi-Head Attention Mechanism</h2>
+        <p>Multi-head attention enables the model to focus on different parts of the sequence simultaneously, learning contextual relationships between words.</p>
+
+        <h2>Step 5: Residual Connections and Normalization</h2>
+        <p>Skip connections (residual connections) help gradient flow, reducing vanishing gradient problems, while layer normalization stabilizes learning.</p>
+
+        <h2>Step 6: Feed-Forward Network</h2>
+        <p>Each position in the sequence independently undergoes two dense layers with a non-linear activation function, enhancing the model's expressiveness.</p>
+
+        <h2>Step 7: Additional Normalization</h2>
+        <p>Layer normalization is applied again to prevent unstable updates and optimize training.</p>
+
+        <h2>Step 8: Decoder’s Input Processing</h2>
+        <p>Similar to the encoder, the decoder processes input embeddings with positional encoding.</p>
+
+        <h2>Step 9: Masked Multi-Head Attention</h2>
+        <p>The decoder employs masked attention, ensuring that predictions for each word only depend on previously generated words.</p>
+
+        <h2>Step 10: Output Generation</h2>
+        <p>The final linear layer maps the decoder output to a probability distribution over the vocabulary using softmax.</p>
+
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+</body>
+
+</html>
