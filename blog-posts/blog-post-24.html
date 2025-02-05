@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="title" property="og:title" content="Understanding BERT's Multi-Head Attention Mechanism">
+    <meta property="og:url" content="https://example.com/bert-multi-head-attention">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Understanding BERT's Multi-Head Attention Mechanism">
+    <meta property="og:description" content="An in-depth look at BERT's architecture, focusing on its multi-head attention mechanism and how it processes language contextually.">
+    <meta property="og:image" content="https://example.com/image.png">
+
+    <title>Understanding BERT's Multi-Head Attention Mechanism</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            font-family: 'Maven Pro', sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #007bff;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #343a40;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Understanding BERT's Multi-Head Attention Mechanism</h1>
+
+        <h2>Introduction to BERT</h2>
+        <p>BERT (Bidirectional Encoder Representations from Transformers) is a pre-trained model designed for natural language understanding. It processes text by encoding it with a deep bidirectional context, allowing it to consider both left and right context in all layers. BERT consists of 12 transformer layers for BERT-base and 24 layers for BERT-large, utilizing only the transformer encoder to generate contextual representations of tokens.</p>
+
+        <h2>Multi-Head Attention in BERT</h2>
+        <p>To understand BERT's multi-head attention mechanism, consider the sentence: "The cat sat on the mat."</p>
+
+        <h3>Self-Attention Mechanism</h3>
+        <p>In self-attention, each token in the sentence computes how much focus it should give to every other token, including itself, to build its representation. Let's break it down:</p>
+
+        <h4>Token Embeddings</h4>
+        <p>The sentence is split into tokens: ["The", "cat", "sat", "on", "the", "mat"]. Each token is represented by a vector. For simplicity, let's denote them as T<sub>1</sub>, T<sub>2</sub>, T<sub>3</sub>, T<sub>4</sub>, T<sub>5</sub>, T<sub>6</sub> respectively.</p>
+
+        <h4>Creating Q, K, and V Vectors</h4>
+        <p>For each token T<sub>i</sub>, three vectors are created: Q<sub>i</sub> (Query), K<sub>i</sub> (Key), and V<sub>i</sub> (Value) through learned linear projections.</p>
+
+        <h4>Attention Calculation</h4>
+        <p>Dot-Product Scores: Compute the dot product of the query vector of one token with the key vectors of all tokens to get attention scores. For instance, the attention scores for the token "cat" would be computed by taking the dot product of Q<sub>cat</sub> with all key vectors K<sub>The</sub>, K<sub>cat</sub>, K<sub>sat</sub>, K<sub>on</sub>, K<sub>the</sub>, K<sub>mat</sub>.</p>
+
+        <h3>Multi-Head Attention</h3>
+        <p>Multi-head attention allows the model to focus on different parts of the sequence simultaneously, learning various contextual relationships between words. For example:</p>
+
+        <ul>
+            <li><strong>Head 1:</strong> Might focus on syntactic relationships, giving more importance to "sat" (since it's the verb associated with "cat").</li>
+            <li><strong>Head 2:</strong> Might capture semantic relationships, emphasizing "mat" (since "cat" and "mat" are related in a spatial sense).</li>
+        </ul>
+
+        <p>By employing multiple attention heads, BERT can capture a wide range of linguistic features, enhancing its understanding of language context.</p>
+
+        <a href="../blogpost.html" class="back-link">Back to Blog</a>
+    </div>
+</body>
+
+</html>
