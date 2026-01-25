@@ -192,23 +192,43 @@
     }
 
     /* Mobile: 1 card per row */
-@media (max-width: 700px){
-  .card{
-    grid-column: span 12;   /* 핵심: 6 -> 12 */
-    min-height: auto;
-  }
+    @media (max-width: 700px){
+      .nav{
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2칸 그리드 */
+        gap: 10px;
+        width: 100%;
+        max-width: 520px; /* 너무 넓어 보이면 조절 */
+        justify-items: stretch;
+      }
 
-  .media iframe{
-    height: 220px;          /* 모바일에서 영상 너무 길면 스크롤 지옥 */
-  }
+      /* 1줄: Network Projects (전체 폭) */
+      .nav a:nth-of-type(1){
+        grid-column: 1 / -1;
+      }
 
-  .row1{
-    flex-direction: column; /* 제목이 길면 줄바꿈 안정 */
-    align-items: flex-start;
-  }
+      /* 2줄: Troubleshooting Logs (전체 폭) */
+      .nav a:nth-of-type(2){
+        grid-column: 1 / -1;
+      }
 
-  h1{font-size:32px;}
-}
+      /* 3줄: Resume(왼쪽), LinkedIn(오른쪽) */
+      .nav a:nth-of-type(3){
+        grid-column: 1;
+      }
+      .nav a:nth-of-type(4){
+        grid-column: 2;
+      }
+
+      .pill{
+        justify-content: center;
+        width: 100%;
+      }
+
+      /* sep는 모바일에서 필요 없음 */
+      .sep{ display:none; }
+    }
+
 
   </style>
 </head>
