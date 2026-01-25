@@ -191,6 +191,25 @@
       h1{font-size:32px;}
     }
 
+    /* Mobile: 1 card per row */
+@media (max-width: 700px){
+  .card{
+    grid-column: span 12;   /* 핵심: 6 -> 12 */
+    min-height: auto;
+  }
+
+  .media iframe{
+    height: 220px;          /* 모바일에서 영상 너무 길면 스크롤 지옥 */
+  }
+
+  .row1{
+    flex-direction: column; /* 제목이 길면 줄바꿈 안정 */
+    align-items: flex-start;
+  }
+
+  h1{font-size:32px;}
+}
+
   </style>
 </head>
 
