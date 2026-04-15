@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PoE Power Insufficiency Causing AP to Operate in 2.4 GHz–Only Mode</title>
+  <title>Firewall Port Open & Verification (ASA GUI + Telnet)</title>
 
   <style>
     :root{
@@ -16,6 +16,7 @@
       --accent:#60a5fa;
       --accent2:#34d399;
       --danger:#f87171;
+      --warn:#fbbf24;
       --shadow:0 18px 50px rgba(0,0,0,.35);
       --radius:18px;
       --max:980px;
@@ -31,7 +32,7 @@
         radial-gradient(900px 520px at 90% 10%, rgba(52,211,153,.14), transparent 55%),
         var(--bg);
       color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       line-height:1.7;
     }
 
@@ -44,8 +45,8 @@
       position:sticky;
       top:0;
       z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(11,15,25,.70);
+      backdrop-filter:blur(10px);
+      background:rgba(11,15,25,.70);
       border-bottom:1px solid var(--line);
     }
 
@@ -304,12 +305,12 @@
       color:#e5e7eb;
       font-size:14px;
       line-height:1.65;
-      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-family:Consolas, Monaco, "Courier New", monospace;
       white-space:pre-wrap;
     }
 
     code{
-      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-family:Consolas, Monaco, "Courier New", monospace;
     }
 
     .note{
@@ -319,6 +320,40 @@
       background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.08);
       color:#d1d5db;
+    }
+
+    .case-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .case{
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:16px;
+      background:rgba(255,255,255,.025);
+    }
+
+    .case.success{ border-left:4px solid var(--accent2); }
+    .case.warn{ border-left:4px solid var(--warn); }
+    .case.danger{ border-left:4px solid var(--danger); }
+
+    .case-title{
+      font-weight:900;
+      margin-bottom:10px;
+      color:#f9fafb;
+    }
+
+    .result-box{
+      margin:10px 0 12px;
+      background:#0a1220;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;
+      padding:12px 14px;
+      font-family:Consolas, Monaco, "Courier New", monospace;
+      color:#e5e7eb;
     }
 
     .footer-nav{
@@ -425,59 +460,47 @@
     </div>
 
     <section class="hero-card">
-      <div class="eyebrow"><i></i>Wireless / PoE / Cisco / Aruba</div>
-      <h1>PoE Power Insufficiency Causing AP to Operate in 2.4 GHz–Only Mode</h1>
-      <p class="updated"><strong>Last updated:</strong> 1/29/26</p>
+      <div class="eyebrow"><i></i>Firewall / ASA / NAT / Telnet</div>
+      <h1>Firewall Port Open &amp; Verification (ASA GUI + Telnet)</h1>
+      <p class="updated"><strong>Last updated:</strong> 4/15/26</p>
     </section>
 
     <section class="section">
       <h2>Problem Summary</h2>
       <p>
-        Several wireless access points were observed operating only on the <strong>2.4 GHz band</strong>,
-        with the <strong>5 GHz radio disabled</strong>. Initial suspicion pointed to Radio Frequency (RF)
-        configuration or controller settings, but further investigation revealed the root cause to be
-        <strong>insufficient PoE power allocation at the access switch port</strong>.
+        A developer required external access to an internal application server, but the connection was blocked by the firewall.
+        I configured the required NAT and firewall rules using the Cisco ASA GUI (ASDM) to allow access to a specific port.
       </p>
       <p>
-        The AP’s 5 GHz radio was disabled not by RF or controller settings, but by
-        <strong>PoE under-allocation</strong> at the switch port.
+        After configuration, I verified connectivity by asking the developer to perform a telnet test to the public IP and port.
       </p>
     </section>
 
     <section class="section">
       <h2>Why it matters</h2>
-      <p>
-        Modern enterprise APs dynamically disable high-power radios when available PoE power falls below
-        the required threshold.
-      </p>
       <ul>
-        <li><strong>2.4 GHz</strong> → lower power requirement</li>
-        <li><strong>5 GHz</strong> → higher power requirement</li>
-        <li><strong>PoE under-allocation</strong> → AP enters degraded mode</li>
+        <li>Firewalls block inbound traffic by default.</li>
+        <li>GUI configuration alone does not guarantee real connectivity.</li>
       </ul>
 
       <div class="callout">
-        Result: Reduced wireless performance and capacity due to loss of 5 GHz service.
+        A port-open request is not complete until external connectivity is actually validated.
       </div>
     </section>
 
     <section class="section">
       <h2>Environment</h2>
       <ul>
-        <li><strong>Core Switch:</strong> Cisco Catalyst 9500 16X 10G (Backbone)</li>
-        <li><strong>Access Switch:</strong> Cisco Catalyst 9200L 24 PoE+</li>
-        <li><strong>Access Point Vendor:</strong> Hewlett-Packard Aruba AP-535 (802.11ax, 2.4 GHz / 5 GHz)</li>
-        <li><strong>Issue Type:</strong> PoE budget / power negotiation</li>
-        <li><strong>Impact:</strong> Partial wireless service degradation (5 GHz unavailable)</li>
+        <li><strong>Firewall:</strong> Cisco ASA (ASDM GUI)</li>
+        <li><strong>NAT Type:</strong> Static NAT (Port Forwarding)</li>
       </ul>
     </section>
 
     <section class="section">
       <h2>Lessons Learned</h2>
       <ul>
-        <li>PoE is not just power delivery — it directly affects device functionality.</li>
-        <li>RF issues may originate from Layer 1 electrical constraints.</li>
-        <li>Always verify PoE budget and negotiation before changing RF or controller configurations.</li>
+        <li>NAT and ACL must both be configured. One alone is insufficient.</li>
+        <li>Telnet is a fast and simple way to validate TCP port connectivity.</li>
       </ul>
     </section>
 
@@ -487,116 +510,81 @@
       <div class="grid">
         <div class="step">
           <div class="step-number">1</div>
-          <h3>Identify the Affected Device (L3 → L2 Trace)</h3>
-
-          <div class="cmd">
-            <div class="cmd-header">
-              <div class="lights"><span></span><span></span><span></span></div>
-              CLI Output
-            </div>
-            <pre><code>C9500_BB# show arp | include 192.168.123.123
-C9500_BB# show mac address-table address 6026.efc0.78b8</code></pre>
-          </div>
+          <h3>Configure Firewall (GUI – ASDM)</h3>
 
           <div class="note">
             <ul>
-              <li>Replace <code>192.168.123.123</code> with the IP address of the target device you are troubleshooting.</li>
-              <li>Replace the MAC address with the actual device MAC, such as <code>6026.efc0.78b8</code>.</li>
-              <li>This confirms how the switch learned the endpoint MAC through the ingress interface path.</li>
+              <li>Created a Static NAT rule mapping, for example: <code>200.100.100.42:3000 → 192.168.207.106:3000</code></li>
+              <li>Allowed traffic in Firewall Access Rules (ACL)</li>
+              <li>Applied the rule to the outside interface</li>
             </ul>
           </div>
         </div>
 
         <div class="step">
           <div class="step-number">2</div>
-          <h3>Locate the Access Switch via CDP</h3>
+          <h3>Request External Validation (Telnet)</h3>
 
           <div class="cmd">
             <div class="cmd-header">
               <div class="lights"><span></span><span></span><span></span></div>
-              CLI Output
+              Validation Command
             </div>
-            <pre><code>C9500_BB# show cdp neighbors
-C9500_BB# show cdp neighbors detail</code></pre>
+            <pre><code>telnet 200.100.100.42 3000</code></pre>
           </div>
 
           <div class="note">
-            Determines the connected access switch and its management IP for the next hop in troubleshooting.
+            This checks whether the public IP and TCP port are reachable from the outside.
           </div>
         </div>
 
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Access the Edge Switch and Verify PoE Status (Critical Step)</h3>
+          <h3>Analyze Results</h3>
 
-          <div class="cmd">
-            <div class="cmd-header">
-              <div class="lights"><span></span><span></span><span></span></div>
-              CLI Output
+          <div class="case-grid">
+            <div class="case success">
+              <div class="case-title">Case 1 – Success</div>
+              <div class="result-box">Connected to 200.100.100.42</div>
+              <ul>
+                <li>Firewall, NAT, and ACL are working correctly.</li>
+              </ul>
             </div>
-            <pre><code>P1_Incoming_01# show power inline</code></pre>
-          </div>
 
-          <div class="note">
-            <ul>
-              <li>The port showed PoE active but under-allocated.</li>
-              <li>The AP powered on, but it was not receiving sufficient wattage for full functionality.</li>
-            </ul>
+            <div class="case warn">
+              <div class="case-title">Case 2 – Connection Refused</div>
+              <div class="result-box">Connection refused</div>
+              <ul>
+                <li>The network path is open.</li>
+                <li>The application is not running on the server, or the service is not listening on that port.</li>
+              </ul>
+            </div>
+
+            <div class="case danger">
+              <div class="case-title">Case 3 – Connection Timed Out</div>
+              <div class="result-box">Connection timed out</div>
+              <ul>
+                <li>Possible firewall, NAT, or ACL issue.</li>
+                <li>Recheck firewall configuration and path handling.</li>
+              </ul>
+            </div>
           </div>
         </div>
 
         <div class="step">
           <div class="step-number">4</div>
-          <h3>Verify MAC Address on the Access Switch</h3>
+          <h3>Internal Verification (ASA)</h3>
 
           <div class="cmd">
             <div class="cmd-header">
               <div class="lights"><span></span><span></span><span></span></div>
-              CLI Output
+              ASA Diagnostic Command
             </div>
-            <pre><code>P1_Incoming_01# show mac address-table address 6026.efc0.78b8</code></pre>
+            <pre><code>packet-tracer input outside tcp &lt;test-ip&gt; 12345 200.100.100.42 3000</code></pre>
           </div>
 
           <div class="note">
-            Confirms the exact switchport where the device is connected, such as <code>Gi1/0/13</code>.
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">5</div>
-          <h3>Review Interface Configuration</h3>
-
-          <div class="cmd">
-            <div class="cmd-header">
-              <div class="lights"><span></span><span></span><span></span></div>
-              CLI Output
-            </div>
-            <pre><code>P1_Incoming_01# show run interface Gi1/0/13</code></pre>
-          </div>
-
-          <div class="note">
-            Displays interface-level settings, including PoE behavior, VLAN assignment, speed, and duplex.
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-number">6</div>
-          <h3>Resolution: Explicitly Allocate Adequate PoE Power</h3>
-
-          <div class="cmd">
-            <div class="cmd-header">
-              <div class="lights"><span></span><span></span><span></span></div>
-              CLI Output
-            </div>
-            <pre><code>P1_Incoming_01# configure terminal
-P1_Incoming_01(config)# interface Gi1/0/13
-P1_Incoming_01(config-if)# power inline static max 30000
-P1_Incoming_01(config-if)# end
-P1_Incoming_01# write memory</code></pre>
-          </div>
-
-          <div class="note">
-            This sets the PoE budget for the port to <strong>30 watts</strong>, ensuring sufficient power for devices such as enterprise access points or IP cameras.
+            Identifies the exact drop point, such as ACL, NAT, or routing behavior inside the ASA decision path.
           </div>
         </div>
       </div>
