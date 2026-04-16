@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE Power Insufficiency Causing AP to Operate in 2.4 GHz–Only Mode</title>
+
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --panel:#0f172a;
+      --panel2:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --line:rgba(255,255,255,.10);
+      --accent:#60a5fa;
+      --accent2:#34d399;
+      --danger:#f87171;
+      --shadow:0 18px 50px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:980px;
+    }
+
+    *{box-sizing:border-box}
+
+    html,body{
+      margin:0;
+      padding:0;
+      background:
+        radial-gradient(1200px 650px at 12% 0%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(52,211,153,.14), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height:1.7;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,25,.70);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-inner{
+      max-width:1120px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      min-height:72px;
+      padding:18px 20px;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 0 4px rgba(96,165,250,.12);
+      flex:0 0 auto;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-self:center;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:11px 18px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      font-weight:800;
+      font-size:15px;
+      letter-spacing:.3px;
+      transition:transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .pill:hover{
+      transform:translateY(-1px);
+      border-color:rgba(96,165,250,.35);
+      background:rgba(96,165,250,.08);
+    }
+
+    .pill.primary{
+      border-color:rgba(96,165,250,.45);
+      background:rgba(96,165,250,.12);
+    }
+
+    .pill.primary:hover{
+      background:rgba(96,165,250,.18);
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 18px 80px;
+    }
+
+    .breadcrumbs{
+      margin-bottom:18px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .breadcrumbs a{
+      color:var(--muted);
+    }
+
+    .breadcrumbs a:hover{
+      color:var(--text);
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:28px 24px;
+      margin-bottom:20px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(15,23,42,.75);
+      color:#dbeafe;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .eyebrow i{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--accent);
+      display:inline-block;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(30px, 4vw, 44px);
+      line-height:1.12;
+      letter-spacing:-.02em;
+    }
+
+    .updated{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:0;
+    }
+
+    .section{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:24px;
+      margin-bottom:18px;
+    }
+
+    h2{
+      margin:0 0 14px;
+      font-size:22px;
+      color:#f9fafb;
+      letter-spacing:-.01em;
+    }
+
+    h3{
+      margin:0 0 12px;
+      font-size:18px;
+      color:#f3f4f6;
+    }
+
+    p{
+      margin:0 0 14px;
+      color:#d1d5db;
+    }
+
+    ul{
+      margin:0;
+      padding-left:20px;
+      color:#d1d5db;
+    }
+
+    li{
+      margin-bottom:8px;
+    }
+
+    .callout{
+      margin-top:16px;
+      padding:16px 18px;
+      border-left:4px solid var(--accent);
+      background:rgba(96,165,250,.10);
+      border-radius:14px;
+      color:#eaf2ff;
+      font-weight:700;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+
+    .step{
+      padding:20px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.025);
+    }
+
+    .step-number{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:32px;
+      height:32px;
+      border-radius:999px;
+      background:rgba(96,165,250,.14);
+      color:#bfdbfe;
+      font-weight:900;
+      font-size:14px;
+      margin-bottom:12px;
+      border:1px solid rgba(96,165,250,.25);
+    }
+
+    .cmd{
+      margin:14px 0;
+      background:#0a1220;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      overflow:hidden;
+    }
+
+    .cmd-header{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    .cmd-header .lights{
+      display:flex;
+      gap:6px;
+      margin-right:4px;
+    }
+
+    .cmd-header .lights span{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      display:inline-block;
+    }
+
+    .cmd-header .lights span:nth-child(1){ background:#f87171; }
+    .cmd-header .lights span:nth-child(2){ background:#fbbf24; }
+    .cmd-header .lights span:nth-child(3){ background:#34d399; }
+
+    pre{
+      margin:0;
+      padding:16px 18px;
+      overflow-x:auto;
+      color:#e5e7eb;
+      font-size:14px;
+      line-height:1.65;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      white-space:pre-wrap;
+    }
+
+    code{
+      font-family: Consolas, Monaco, "Courier New", monospace;
+    }
+
+    .note{
+      margin-top:12px;
+      padding:14px 16px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      color:#d1d5db;
+    }
+
+    .footer-nav{
+      margin-top:24px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      font-weight:900;
+      font-size:14px;
+      color:#f9fafb;
+      transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(96,165,250,.35);
+      background:rgba(96,165,250,.08);
+    }
+
+    .btn.primary{
+      border-color:rgba(96,165,250,.45);
+      background:rgba(96,165,250,.12);
+    }
+
+    .btn.primary:hover{
+      background:rgba(96,165,250,.18);
+    }
+
+    .footer{
+      margin-top:28px;
+      color:rgba(229,231,235,.55);
+      font-size:12px;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:16px;
+    }
+
+    @media (max-width: 700px){
+      .topbar-inner{
+        grid-template-columns:1fr;
+        justify-items:center;
+        row-gap:10px;
+      }
+
+      .brand{
+        justify-self:center;
+      }
+
+      .nav{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        width:100%;
+        max-width:520px;
+      }
+
+      .pill{
+        width:100%;
+      }
+
+      .wrap{
+        padding-top:24px;
+      }
+
+      .section,
+      .hero-card{
+        padding:20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Hyunwook Kim</span>
+      </div>
+
+      <div class="nav">
+        <a class="pill" href="../projects.html">Network Projects</a>
+        <a class="pill primary" href="../troubleshooting.html">Troubleshooting Logs</a>
+        <a class="pill" href="../Hyunwook_Kim_Resume_(032626).pdf" target="_blank" rel="noreferrer">Resume</a>
+        <a class="pill" href="https://www.linkedin.com/in/hyunwookkim418/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+
+      <div></div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="breadcrumbs">
+      <a href="../troubleshooting.html">Troubleshooting Logs</a>
+    </div>
+
+<section class="hero-card">
+  <div class="eyebrow"><i></i>CCTV Network Failure / Intermittent Video Loss / Packet Loss Troubleshooting</div>
+  <h1>CCTV Intermittent / No Video Issue (Switch Port Failure)</h1>
+  <p class="updated">Last updated: 4/16/26</p>
+</section>
+
+<section class="section">
+  <h2>Problem Summary</h2>
+  <p>
+    One CCTV camera intermittently lost video feed, repeatedly disconnecting and reconnecting.
+    Eventually, the video stopped displaying completely. Other cameras on the same network were
+    operating normally, including those located farther away.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Why it matters?</h2>
+  <ul>
+    <li>Intermittent failure is harder to detect and diagnose than a full outage</li>
+    <li>High risk of misdiagnosis involving distance, cabling, or camera hardware</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Environment</h2>
+  <ul>
+    <li>CCTV System: LTS IP Cameras</li>
+    <li>Network: PoE Switch (LTS)</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Root Cause</h2>
+  <ul>
+    <li>Packet loss at the port level</li>
+    <li>Abnormally high latency</li>
+    <li>Link instability resulting in intermittent camera disconnection</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Lessons Learned</h2>
+  <ul>
+    <li>Intermittent issues often indicate hardware degradation rather than configuration problems</li>
+    <li>Port-level faults can mimic cable or endpoint issues</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Troubleshooting Process</h2>
+
+  <div class="grid">
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3>Symptom Observation</h3>
+      <ul>
+        <li>CCTV feed repeatedly dropped and reconnected</li>
+        <li>Eventually no video output</li>
+        <li>Other cameras working normally</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3>Initial Assumption Check</h3>
+      <ul>
+        <li>Distance issue? X (farther cameras working fine)</li>
+        <li>Camera issue? X (not yet confirmed)</li>
+        <li>Network instability suspected</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3>Network Test (Key Evidence)</h3>
+      <ul>
+        <li>Ping test to camera IP showed packet loss</li>
+        <li>Response time was extremely slow</li>
+      </ul>
+      <div class="callout">
+        Result: Indicated a network-level issue rather than a distance or camera problem.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">4</div>
+      <h3>Isolation Test (Turning Point)</h3>
+      <ul>
+        <li>Moved the Ethernet cable to a different switch port</li>
+      </ul>
+      <div class="callout">
+        Result: Stable connectivity, no packet loss, and full video restoration.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+
+</body>
+</html>
