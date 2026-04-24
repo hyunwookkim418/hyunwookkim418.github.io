@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoE Power Insufficiency Causing AP to Operate in 2.4 GHz–Only Mode</title>
+
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --panel:#0f172a;
+      --panel2:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --line:rgba(255,255,255,.10);
+      --accent:#60a5fa;
+      --accent2:#34d399;
+      --danger:#f87171;
+      --shadow:0 18px 50px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:980px;
+    }
+
+    *{box-sizing:border-box}
+
+    html,body{
+      margin:0;
+      padding:0;
+      background:
+        radial-gradient(1200px 650px at 12% 0%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(52,211,153,.14), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height:1.7;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,25,.70);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-inner{
+      max-width:1120px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      min-height:72px;
+      padding:18px 20px;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 0 4px rgba(96,165,250,.12);
+      flex:0 0 auto;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-self:center;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:11px 18px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      font-weight:800;
+      font-size:15px;
+      letter-spacing:.3px;
+      transition:transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .pill:hover{
+      transform:translateY(-1px);
+      border-color:rgba(96,165,250,.35);
+      background:rgba(96,165,250,.08);
+    }
+
+    .pill.primary{
+      border-color:rgba(96,165,250,.45);
+      background:rgba(96,165,250,.12);
+    }
+
+    .pill.primary:hover{
+      background:rgba(96,165,250,.18);
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 18px 80px;
+    }
+
+    .breadcrumbs{
+      margin-bottom:18px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .breadcrumbs a{
+      color:var(--muted);
+    }
+
+    .breadcrumbs a:hover{
+      color:var(--text);
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:28px 24px;
+      margin-bottom:20px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(15,23,42,.75);
+      color:#dbeafe;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .eyebrow i{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--accent);
+      display:inline-block;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(30px, 4vw, 44px);
+      line-height:1.12;
+      letter-spacing:-.02em;
+    }
+
+    .updated{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:0;
+    }
+
+    .section{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:24px;
+      margin-bottom:18px;
+    }
+
+    h2{
+      margin:0 0 14px;
+      font-size:22px;
+      color:#f9fafb;
+      letter-spacing:-.01em;
+    }
+
+    h3{
+      margin:0 0 12px;
+      font-size:18px;
+      color:#f3f4f6;
+    }
+
+    p{
+      margin:0 0 14px;
+      color:#d1d5db;
+    }
+
+    ul{
+      margin:0;
+      padding-left:20px;
+      color:#d1d5db;
+    }
+
+    li{
+      margin-bottom:8px;
+    }
+
+    .callout{
+      margin-top:16px;
+      padding:16px 18px;
+      border-left:4px solid var(--accent);
+      background:rgba(96,165,250,.10);
+      border-radius:14px;
+      color:#eaf2ff;
+      font-weight:700;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+
+    .step{
+      padding:20px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.025);
+    }
+
+    .step-number{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:32px;
+      height:32px;
+      border-radius:999px;
+      background:rgba(96,165,250,.14);
+      color:#bfdbfe;
+      font-weight:900;
+      font-size:14px;
+      margin-bottom:12px;
+      border:1px solid rgba(96,165,250,.25);
+    }
+
+    .cmd{
+      margin:14px 0;
+      background:#0a1220;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      overflow:hidden;
+    }
+
+    .cmd-header{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    .cmd-header .lights{
+      display:flex;
+      gap:6px;
+      margin-right:4px;
+    }
+
+    .cmd-header .lights span{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      display:inline-block;
+    }
+
+    .cmd-header .lights span:nth-child(1){ background:#f87171; }
+    .cmd-header .lights span:nth-child(2){ background:#fbbf24; }
+    .cmd-header .lights span:nth-child(3){ background:#34d399; }
+
+    pre{
+      margin:0;
+      padding:16px 18px;
+      overflow-x:auto;
+      color:#e5e7eb;
+      font-size:14px;
+      line-height:1.65;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      white-space:pre-wrap;
+    }
+
+    code{
+      font-family: Consolas, Monaco, "Courier New", monospace;
+    }
+
+    .note{
+      margin-top:12px;
+      padding:14px 16px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      color:#d1d5db;
+    }
+
+    .footer-nav{
+      margin-top:24px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      font-weight:900;
+      font-size:14px;
+      color:#f9fafb;
+      transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(96,165,250,.35);
+      background:rgba(96,165,250,.08);
+    }
+
+    .btn.primary{
+      border-color:rgba(96,165,250,.45);
+      background:rgba(96,165,250,.12);
+    }
+
+    .btn.primary:hover{
+      background:rgba(96,165,250,.18);
+    }
+
+    .footer{
+      margin-top:28px;
+      color:rgba(229,231,235,.55);
+      font-size:12px;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:16px;
+    }
+
+    @media (max-width: 700px){
+      .topbar-inner{
+        grid-template-columns:1fr;
+        justify-items:center;
+        row-gap:10px;
+      }
+
+      .brand{
+        justify-self:center;
+      }
+
+      .nav{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        width:100%;
+        max-width:520px;
+      }
+
+      .pill{
+        width:100%;
+      }
+
+      .wrap{
+        padding-top:24px;
+      }
+
+      .section,
+      .hero-card{
+        padding:20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Hyunwook Kim</span>
+      </div>
+
+      <div class="nav">
+        <a class="pill" href="../projects.html">Network Projects</a>
+        <a class="pill primary" href="../troubleshooting.html">Troubleshooting Logs</a>
+        <a class="pill" href="../Hyunwook_Kim_Resume_(032626).pdf" target="_blank" rel="noreferrer">Resume</a>
+        <a class="pill" href="https://www.linkedin.com/in/hyunwookkim418/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+
+      <div></div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="breadcrumbs">
+      <a href="../troubleshooting.html">Troubleshooting Logs</a>
+    </div>
+
+<section class="hero-card">
+  <div class="eyebrow"><i></i>Security / VPN / Cisco Firepower</div>
+  <h1>VPN Tunnel Failure Due to Firewall Encryption Compatibility (Firepower NGFW)</h1>
+  <p class="updated"><strong>Last updated:</strong> 4/24/26</p>
+</section>
+
+<section class="section">
+  <h2>Problem Summary</h2>
+  <p>
+    A site-to-site IPsec VPN tunnel between the <strong>U.S. plant</strong> and headquarters failed to establish.
+    Although Phase 1 (IKE) and Phase 2 (IPsec) parameters appeared structurally aligned,
+    tunnel negotiation consistently failed.
+  </p>
+  <p>
+    Root cause analysis revealed that the headquarters was using
+    <strong>legacy cryptographic algorithms (DES, MD5, DH Group 2)</strong>,
+    which are <strong>not supported by the Cisco Firepower 1150 NGFW</strong>.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Why it matters</h2>
+  <ul>
+    <li><strong>IPsec VPN tunnels require exact parameter matching</strong> on both sides</li>
+    <li><strong>Legacy cryptographic algorithms</strong> are blocked by modern security platforms</li>
+    <li>Mismatch results in <strong>tunnel negotiation failure</strong>, even if configuration appears correct</li>
+  </ul>
+
+  <div class="callout">
+    Result: VPN tunnel cannot establish despite correct network connectivity.
+  </div>
+</section>
+
+<section class="section">
+  <h2>Environment</h2>
+  <ul>
+    <li><strong>Firewall (US):</strong> Cisco Firepower 1150 NGFW</li>
+    <li><strong>VPN Type:</strong> Site-to-Site IPsec (IKEv1)</li>
+    <li><strong>Authentication:</strong> Pre-shared key</li>
+    <li><strong>Issue Type:</strong> Encryption / crypto policy incompatibility</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Troubleshooting Process</h2>
+
+  <div class="grid">
+
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3>Initial Configuration Review</h3>
+
+      <div class="note">
+        <ul>
+          <li>Verified Phase 1 / Phase 2 parameters from headquarters</li>
+          <li><strong>Encryption:</strong> DES</li>
+          <li><strong>Hash:</strong> MD5</li>
+          <li><strong>DH Group:</strong> 2</li>
+          <li><strong>Lifetime:</strong> 86400 seconds</li>
+        </ul>
+      </div>
+
+      <div class="note">
+        Compared these values against supported crypto policies on Firepower.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3>Identify Mismatch (Critical Step)</h3>
+
+      <div class="note">
+        <ul>
+          <li>Firepower does <strong>not allow DES / MD5</strong></li>
+          <li>Legacy crypto suite rejected during negotiation</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        Conclusion: Tunnel failure caused by <strong>encryption incompatibility</strong>, not a network issue.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3>Define Compatible VPN Parameters</h3>
+
+      <div class="note">
+        <strong>Phase 1 (IKEv1):</strong>
+        <ul>
+          <li>Encryption: AES</li>
+          <li>Hash: SHA</li>
+          <li>DH Group: 5</li>
+          <li>Lifetime: 86400</li>
+        </ul>
+      </div>
+
+      <div class="note">
+        <strong>Phase 2 (IPsec):</strong>
+        <ul>
+          <li>Encryption: ESP-AES</li>
+          <li>Hash: ESP-SHA-HMAC</li>
+          <li>PFS: Group 5</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">4</div>
+      <h3>Coordination with Headquarters</h3>
+
+      <div class="note">
+        Requested headquarters to:
+        <ul>
+          <li>Update VPN crypto settings to supported values</li>
+          <li>Keep pre-shared key identical</li>
+          <li>Provide final Phase 1 / Phase 2 configuration</li>
+        </ul>
+      </div>
+
+      <div class="note">
+        Purpose: Ensure full compatibility before re-establishing the tunnel.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">5</div>
+      <h3>Validation Plan</h3>
+
+      <div class="note">
+        After configuration alignment:
+        <ul>
+          <li>Re-initiate VPN tunnel</li>
+          <li>Verify Phase 1 establishment (IKE SA)</li>
+          <li>Verify Phase 2 (IPsec SA)</li>
+          <li>Test connectivity (ping and application traffic)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <div class="footer-nav">
+      <a class="btn" href="../troubleshooting.html">← Back to Troubleshooting Logs</a>
+      <a class="btn primary" href="../projects.html">View Network Projects</a>
+    </div>
+
+    <div class="footer">
+      © <script>document.write(new Date().getFullYear())</script> Hyunwook Kim · Troubleshooting Log
+    </div>
+  </main>
+
+</body>
+</html>
