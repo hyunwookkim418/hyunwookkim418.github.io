@@ -1,193 +1,67 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+```html
+---
+layout: default
+title: Home
+description: "Technical notes and practical guides on Linux, machine learning, and troubleshooting."
+---
 
-  <title>Hyunwook Kim — Tech Blog</title>
+<section class="hero">
 
-  <meta
-    name="description"
-    content="Technical notes and practical guides on Linux and machine learning."
-  />
+  <p class="eyebrow">TECHNICAL BLOG</p>
 
-  <link rel="stylesheet" href="css/blog.css" />
-</head>
+  <h1>
+    Practical notes on Linux<br>
+    and Machine Learning.
+  </h1>
 
-<body>
+  <p class="hero-description">
+    I write simple explanations, troubleshooting notes,
+    and practical guides from what I learn while working in tech.
+  </p>
 
-  <button class="mobile-menu-button" id="menuButton">
-    ☰
-  </button>
+</section>
 
-  <aside class="sidebar" id="sidebar">
 
-    <div class="sidebar-header">
-      <a href="index.html" class="site-name">HYUNWOOK KIM</a>
-      <p class="site-description">Tech Notes & Guides</p>
-    </div>
+<section class="posts-section">
 
-    <nav class="sidebar-nav">
-
-      <a href="index.html" class="nav-link active">Home</a>
-
-      <div class="nav-section">
-        <button class="nav-section-title">
-          <span>Linux</span>
-          <span>⌄</span>
-        </button>
-
-        <div class="nav-submenu">
-          <a href="#">Basics</a>
-          <a href="#">System Administration</a>
-          <a href="#">Troubleshooting</a>
-        </div>
-      </div>
-
-      <div class="nav-section">
-        <button class="nav-section-title">
-          <span>Machine Learning</span>
-          <span>⌄</span>
-        </button>
-
-        <div class="nav-submenu">
-          <a href="#">Fundamentals</a>
-          <a href="#">Preprocessing</a>
-          <a href="#">Projects</a>
-        </div>
-      </div>
-
-       <div class="nav-section">
-    <button class="nav-section-title">
-      <span>Troubleshooting Logs</span>
-      <span>⌄</span>
-    </button>
-
-    <div class="nav-submenu">
-      <a href="troubleshooting/network/">Network</a>
-      <a href="troubleshooting/server-storage/">Server / Storage</a>
-      <a href="troubleshooting/infrastructure/">Infrastructure</a>
-    </div>
+  <div class="section-header">
+    <h2>Latest Posts</h2>
   </div>
 
-      <a href="#" class="nav-link">About</a>
 
-    </nav>
+  <!-- Troubleshooting Post 1 -->
 
-    <div class="sidebar-footer">
-      <a href="#">Privacy</a>
-      <a href="#">Contact</a>
+  <article class="post-card">
+
+    <div class="post-meta">
+      <span class="category">Troubleshooting / Network</span>
+      <span>January 29, 2026</span>
     </div>
 
-  </aside>
-
-  <main class="content">
-
-    <section class="hero">
-
-      <p class="eyebrow">TECHNICAL BLOG</p>
-
-      <h1>
-        Practical notes on Linux<br />
-        and Machine Learning.
-      </h1>
-
-      <p class="hero-description">
-        I write simple explanations, troubleshooting notes,
-        and practical guides from what I learn while working in tech.
-      </p>
-
-    </section>
-
-    <section class="posts-section">
-
-      <div class="section-header">
-        <h2>Latest Posts</h2>
-      </div>
-
-      <article class="post-card">
-
-      <div class="post-meta">
-        <span class="category">Troubleshooting / Network</span>
-        <span>January 29, 2026</span>
-      </div>
-
-      <h3>
-        <a href="troubleshooting/network/poe-power-insufficiency.html">
-          PoE Power Insufficiency Causing an AP to Operate in 2.4 GHz Only
-        </a>
-      </h3>
-
-      <p>
-        An Aruba access point was operating only on 2.4 GHz because
-        insufficient PoE allocation prevented full radio operation.
-      </p>
-
-      <a
-        href="troubleshooting/network/poe-power-insufficiency.html"
-        class="read-more"
-      >
-        Read article →
+    <h3>
+      <a href="/troubleshooting/network/poe-power-insufficiency.html">
+        PoE Power Insufficiency Causing an AP to Operate in 2.4 GHz Only
       </a>
+    </h3>
 
-    </article>
+    <p>
+      An Aruba access point was operating only on 2.4 GHz because
+      insufficient PoE allocation prevented full radio operation.
+    </p>
 
-      <article class="post-card">
+    <a
+      href="/troubleshooting/network/poe-power-insufficiency.html"
+      class="read-more"
+    >
+      Read article →
+    </a>
 
-        <div class="post-meta">
-          <span class="category">Linux</span>
-          <span>August 17, 2026</span>
-        </div>
+  </article>
 
-        <h3>
-          <a href="#">Linux File Permissions Explained</a>
-        </h3>
+</section>
 
-        <p>
-          A practical introduction to Linux users, groups,
-          ownership, chmod, and file permissions.
-        </p>
 
-        <a href="#" class="read-more">Read article →</a>
-
-      </article>
-
-      <article class="post-card">
-
-        <div class="post-meta">
-          <span class="category">Machine Learning</span>
-          <span>August 17, 2026</span>
-        </div>
-
-        <h3>
-          <a href="#">Understanding StandardScaler</a>
-        </h3>
-
-        <p>
-          What feature scaling actually does,
-          why it matters, and when StandardScaler should be used.
-        </p>
-
-        <a href="#" class="read-more">Read article →</a>
-
-      </article>
-
-    </section>
-
-    <footer class="main-footer">
-      © 2026 Hyunwook Kim
-    </footer>
-
-  </main>
-
-  <script>
-    const menuButton = document.getElementById("menuButton");
-    const sidebar = document.getElementById("sidebar");
-
-    menuButton.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-    });
-  </script>
-
-</body>
-</html>
+<footer class="main-footer">
+  © 2026 Hyunwook Kim
+</footer>
+```
