@@ -1281,3 +1281,23 @@ hr.solid {
 .topic-item:hover h3 {
   color: #2457ff;
 }
+
+/* Topic separators */
+
+.topics-section .topic-list {
+  border-top: 1px solid #d1d5db;
+}
+
+.topics-section .topic-item {
+  display: block;
+  padding: 24px 0;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.topics-section .topic-item h3 {
+  margin: 0 0 10px 0;
+}
+
+.topics-section .topic-item p {
+  margin: 0;
+}
