@@ -2,9 +2,152 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="refresh" content="0;url=projects.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hyunwook Kim</title>
+
+  <title>Hyunwook Kim — Tech Blog</title>
+
+  <meta
+    name="description"
+    content="Technical notes and practical guides on Linux and machine learning."
+  />
+
+  <link rel="stylesheet" href="css/blog.css" />
 </head>
-<body></body>
+
+<body>
+
+  <button class="mobile-menu-button" id="menuButton">
+    ☰
+  </button>
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+      <a href="index.html" class="site-name">HYUNWOOK KIM</a>
+      <p class="site-description">Tech Notes & Guides</p>
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <a href="index.html" class="nav-link active">Home</a>
+
+      <div class="nav-section">
+        <button class="nav-section-title">
+          <span>Linux</span>
+          <span>⌄</span>
+        </button>
+
+        <div class="nav-submenu">
+          <a href="#">Basics</a>
+          <a href="#">System Administration</a>
+          <a href="#">Troubleshooting</a>
+        </div>
+      </div>
+
+      <div class="nav-section">
+        <button class="nav-section-title">
+          <span>Machine Learning</span>
+          <span>⌄</span>
+        </button>
+
+        <div class="nav-submenu">
+          <a href="#">Fundamentals</a>
+          <a href="#">Preprocessing</a>
+          <a href="#">Projects</a>
+        </div>
+      </div>
+
+      <a href="#" class="nav-link">About</a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+    </div>
+
+  </aside>
+
+  <main class="content">
+
+    <section class="hero">
+
+      <p class="eyebrow">TECHNICAL BLOG</p>
+
+      <h1>
+        Practical notes on Linux<br />
+        and Machine Learning.
+      </h1>
+
+      <p class="hero-description">
+        I write simple explanations, troubleshooting notes,
+        and practical guides from what I learn while working in tech.
+      </p>
+
+    </section>
+
+    <section class="posts-section">
+
+      <div class="section-header">
+        <h2>Latest Posts</h2>
+      </div>
+
+      <article class="post-card">
+
+        <div class="post-meta">
+          <span class="category">Linux</span>
+          <span>August 17, 2026</span>
+        </div>
+
+        <h3>
+          <a href="#">Linux File Permissions Explained</a>
+        </h3>
+
+        <p>
+          A practical introduction to Linux users, groups,
+          ownership, chmod, and file permissions.
+        </p>
+
+        <a href="#" class="read-more">Read article →</a>
+
+      </article>
+
+      <article class="post-card">
+
+        <div class="post-meta">
+          <span class="category">Machine Learning</span>
+          <span>August 17, 2026</span>
+        </div>
+
+        <h3>
+          <a href="#">Understanding StandardScaler</a>
+        </h3>
+
+        <p>
+          What feature scaling actually does,
+          why it matters, and when StandardScaler should be used.
+        </p>
+
+        <a href="#" class="read-more">Read article →</a>
+
+      </article>
+
+    </section>
+
+    <footer class="main-footer">
+      © 2026 Hyunwook Kim
+    </footer>
+
+  </main>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const sidebar = document.getElementById("sidebar");
+
+    menuButton.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+  </script>
+
+</body>
 </html>
