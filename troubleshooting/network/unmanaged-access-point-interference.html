@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Unmanaged Access Points Causing Wireless Interference and Production Count Issues | Kim</title>
+
+  <meta
+    name="description"
+    content="A real-world troubleshooting case where unmanaged and legacy wireless access points caused RF interference, unstable connectivity, and production count delays in an industrial environment."
+  >
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/blog.css">
+</head>
+
+
+<body>
+
+  <!-- MOBILE MENU BUTTON -->
+
+  <button class="mobile-menu-button" id="menuButton">
+    ☰
+  </button>
+
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+
+      <a href="/" class="site-name">
+        KIM
+      </a>
+
+      <p class="site-description">
+        Tech Notes & Guides
+      </p>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+      <a href="/" class="nav-link">
+        Home
+      </a>
+
+
+      <div class="nav-section">
+
+        <div class="nav-section-title">
+          <span>Linux</span>
+        </div>
+
+        <div class="nav-submenu">
+          <a href="#">Basics</a>
+          <a href="#">System Administration</a>
+          <a href="#">Troubleshooting</a>
+        </div>
+
+      </div>
+
+
+      <div class="nav-section">
+
+        <div class="nav-section-title">
+          <span>Machine Learning</span>
+        </div>
+
+        <div class="nav-submenu">
+          <a href="#">Fundamentals</a>
+          <a href="#">Preprocessing</a>
+          <a href="#">Projects</a>
+        </div>
+
+      </div>
+
+
+      <div class="nav-section">
+
+        <div class="nav-section-title">
+          <span>Troubleshooting Logs</span>
+        </div>
+
+        <div class="nav-submenu">
+
+          <a href="/troubleshooting/network/">
+            Network
+          </a>
+
+          <a href="/troubleshooting/server-storage/">
+            Server / Storage
+          </a>
+
+          <a href="/troubleshooting/infrastructure/">
+            Infrastructure
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <a href="/about.html" class="nav-link">
+        About
+      </a>
+
+    </nav>
+
+
+    <div class="sidebar-footer">
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN CONTENT -->
+
+  <main class="content">
+
+    <article class="article">
+
+
+      <!-- ARTICLE HEADER -->
+
+      <header class="article-header">
+
+        <div class="breadcrumb">
+          Troubleshooting / Network
+        </div>
+
+        <h1>
+          Unmanaged Access Points Causing Wireless Interference and Production Count Issues
+        </h1>
+
+        <div class="article-meta">
+          February 6, 2026
+        </div>
+
+      </header>
+
+
+      <div class="article-tags">
+        Network · Wireless · RF Interference · Aruba · OT
+      </div>
+
+
+      <!-- OVERVIEW -->
+
+      <h2>Overview</h2>
+
+      <p>
+        A Point of Production (POP) system was experiencing intermittent
+        production count discrepancies and communication delays in a
+        localized area of the factory floor.
+      </p>
+
+      <p>
+        The POP system collected production counts over the wireless network,
+        so the initial troubleshooting process included both the production
+        system and the wireless infrastructure.
+      </p>
+
+      <p>
+        PLC logic and POP application behavior were confirmed to be operating
+        normally, which narrowed the investigation to the wireless
+        communication path.
+      </p>
+
+
+      <div class="root-cause">
+
+        <strong>Root Cause</strong>
+
+        A legacy access point from a previous deployment was still powered on
+        and broadcasting the same SSID. A nearby consumer-grade wireless
+        router was also operating in the area. These unmanaged devices
+        degraded the local RF environment and caused unstable wireless
+        connectivity.
+
+      </div>
+
+
+      <!-- WHY IT MATTERS -->
+
+      <h2>Why It Matters</h2>
+
+      <p>
+        Wireless problems in industrial environments do not always result in
+        a complete communication failure.
+      </p>
+
+      <p>
+        Partial RF degradation can reduce throughput and connection stability
+        while devices remain technically connected to the network.
+      </p>
+
+      <p>
+        In this case, degraded wireless communication contributed to delayed
+        or inconsistent production data.
+      </p>
+
+      <p>
+        This type of issue can be difficult to detect because the system may
+        continue operating while real-time information becomes delayed or
+        incomplete.
+      </p>
+
+
+      <!-- ENVIRONMENT -->
+
+      <h2>Environment</h2>
+
+      <ul>
+        <li>
+          <strong>Access Point:</strong>
+          Hewlett-Packard Aruba AP-535
+        </li>
+
+        <li>
+          <strong>Wireless:</strong>
+          802.11ax, 2.4 GHz / 5 GHz
+        </li>
+
+        <li>
+          <strong>Management:</strong>
+          Local Aruba Virtual Controller
+        </li>
+
+        <li>
+          <strong>Environment:</strong>
+          Industrial production floor
+        </li>
+
+        <li>
+          <strong>Issue Type:</strong>
+          RF interference / unmanaged wireless devices
+        </li>
+
+        <li>
+          <strong>Impact:</strong>
+          Unstable connectivity and delayed production count communication
+        </li>
+      </ul>
+
+
+      <!-- TROUBLESHOOTING PROCESS -->
+
+      <h2>Troubleshooting Process</h2>
+
+
+      <h3>1. Verify the Problem On-Site</h3>
+
+      <p>
+        The affected production area was inspected while monitoring wireless
+        client status through the Aruba Virtual Controller.
+      </p>
+
+      <p>
+        The affected client showed extremely low throughput and unstable
+        wireless connectivity.
+      </p>
+
+
+      <!-- OPTIONAL IMAGE -->
+
+      <figure class="article-image">
+
+        <img
+          src="/img/troubleshooting/unmanaged-ap-interference.png"
+          alt="Aruba Virtual Controller showing abnormal wireless client performance"
+        >
+
+        <figcaption>
+          Figure 1. Wireless client showing abnormally low performance
+          in the Aruba Virtual Controller.
+        </figcaption>
+
+      </figure>
+
+
+      <h3>2. Verify the Application and Control System</h3>
+
+      <p>
+        PLC logic and POP application behavior were reviewed and confirmed
+        to be operating normally.
+      </p>
+
+      <p>
+        This helped rule out the production application and control logic
+        as the primary source of the issue.
+      </p>
+
+
+      <h3>3. Inspect the Local Wireless Environment</h3>
+
+      <p>
+        A physical inspection of the surrounding production area was
+        performed to identify possible sources of interference.
+      </p>
+
+      <p>
+        During the inspection, a legacy access point from a previous
+        deployment was discovered.
+      </p>
+
+      <p>
+        The device was still powered on and broadcasting the same SSID as
+        the production wireless network.
+      </p>
+
+
+      <h3>4. Identify Additional Unmanaged Wireless Devices</h3>
+
+      <p>
+        A nearby consumer-grade home router was also found operating in the
+        same area.
+      </p>
+
+      <p>
+        The combination of multiple unmanaged wireless devices further
+        degraded the local RF environment and contributed to unstable client
+        connectivity.
+      </p>
+
+
+      <!-- RESOLUTION -->
+
+      <h2>Resolution</h2>
+
+      <p>
+        The legacy access point and consumer-grade wireless router were
+        powered off and removed from the production area.
+      </p>
+
+      <p>
+        Wireless stability improved immediately after the unmanaged devices
+        were removed.
+      </p>
+
+      <p>
+        Normal communication was restored, resolving the production count
+        delays associated with the degraded wireless connection.
+      </p>
+
+
+      <!-- LESSONS LEARNED -->
+
+      <h2>Lessons Learned</h2>
+
+      <ul>
+
+        <li>
+          Undocumented or temporary wireless devices can become hidden
+          sources of RF interference.
+        </li>
+
+        <li>
+          Physical inspection remains an important part of wireless
+          troubleshooting, especially in industrial environments.
+        </li>
+
+        <li>
+          A wireless client can remain connected while experiencing severe
+          degradation in throughput and stability.
+        </li>
+
+        <li>
+          Application or PLC symptoms should not automatically be treated
+          as application-layer failures when the underlying communication
+          path is unstable.
+        </li>
+
+        <li>
+          Consumer-grade access points should not be introduced into
+          industrial wireless environments, even temporarily.
+        </li>
+
+      </ul>
+
+
+      <!-- BACK -->
+
+      <div class="article-footer">
+
+        <a href="/troubleshooting/network/">
+          ← Back to Network Troubleshooting
+        </a>
+
+      </div>
+
+    </article>
+
+  </main>
+
+
+  <!-- MOBILE SIDEBAR -->
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const sidebar = document.getElementById("sidebar");
+
+    if (menuButton && sidebar) {
+      menuButton.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+      });
+    }
+  </script>
+
+</body>
+
+</html>
