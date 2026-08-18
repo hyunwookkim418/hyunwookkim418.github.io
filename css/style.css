@@ -1231,3 +1231,54 @@ fieldset {
 hr.solid {
   border-top: 3px solid #bbb;
 }
+
+/* ========================================
+   WHAT I WRITE ABOUT
+   ======================================== */
+
+.topics-section {
+  margin-top: 72px;
+}
+
+.topics-section h2 {
+  margin-bottom: 18px;
+
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.topic-list {
+  border-top: 1px solid #e5e7eb;
+}
+
+.topic-item {
+  display: block;
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  transition: transform 0.15s ease;
+}
+
+.topic-item:hover {
+  transform: translateX(4px);
+}
+
+.topic-item h3 {
+  margin: 0 0 6px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.topic-item p {
+  margin: 0;
+
+  color: #71717a;
+  font-size: 14px;
+}
+
+.topic-item:hover h3 {
+  color: #2457ff;
+}
