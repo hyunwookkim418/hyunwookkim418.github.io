@@ -1253,20 +1253,15 @@ hr.solid {
 
 .topic-item {
   display: block;
-
-  padding: 22px 0;
+  padding: 24px 0;
 
   border-bottom: 1px solid #e5e7eb;
 
   transition: transform 0.15s ease;
 }
 
-.topic-item:hover {
-  transform: translateX(4px);
-}
-
 .topic-item h3 {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
 
   font-size: 18px;
   font-weight: 700;
@@ -1276,7 +1271,11 @@ hr.solid {
   margin: 0;
 
   color: #71717a;
-  font-size: 14px;
+  font-size: 15px;
+}
+
+.topic-item:hover {
+  transform: translateX(4px);
 }
 
 .topic-item:hover h3 {
