@@ -1,119 +1,316 @@
----
-layout: default
-title: Network Troubleshooting
-description: "Real-world network troubleshooting notes covering wireless, PoE, IP conflicts, switching, and network infrastructure."
----
+<!doctype html>
+<html lang="en">
 
-<section class="hero">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <p class="eyebrow">TROUBLESHOOTING LOGS</p>
+  <title>Network Troubleshooting | Hyunwook Kim</title>
 
-  <h1>
-    Network Troubleshooting
-  </h1>
+  <meta
+    name="description"
+    content="Real-world network troubleshooting notes covering wireless, PoE, IP conflicts, switching, and network infrastructure."
+  >
 
-  <p class="hero-description">
-    Real-world notes from diagnosing network problems,
-    finding root causes, and implementing practical fixes.
-  </p>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/img/favicon.png">
 
-</section>
-
-
-<section class="posts-section">
-
-  <div class="section-header">
-    <h2>Posts</h2>
-  </div>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/blog.css">
+</head>
 
 
-  <!-- POST 1 -->
+<body>
 
-  <article class="post-card">
+  <!-- MOBILE MENU BUTTON -->
 
-    <div class="post-meta">
-      <span class="category">Network</span>
-      <span>January 29, 2026</span>
+  <button class="mobile-menu-button" id="menuButton">
+    ☰
+  </button>
+
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+
+      <a href="/" class="site-name">
+        HYUNWOOK KIM
+      </a>
+
+      <p class="site-description">
+        Tech Notes & Guides
+      </p>
+
     </div>
 
-    <h3>
-      <a href="/troubleshooting/network/poe-power-insufficiency.html">
-        PoE Power Insufficiency Causing an AP to Operate in 2.4 GHz Only
+
+    <nav class="sidebar-nav">
+
+      <!-- HOME -->
+
+      <a href="/" class="nav-link">
+        Home
       </a>
-    </h3>
-
-    <p>
-      An Aruba access point was operating only on 2.4 GHz because
-      insufficient PoE allocation prevented full radio operation.
-    </p>
-
-    <a
-      href="/troubleshooting/network/poe-power-insufficiency.html"
-      class="read-more"
-    >
-      Read article →
-    </a>
-
-  </article>
 
 
-  <!-- POST 2 -->
+      <!-- LINUX -->
 
-  <article class="post-card">
+      <div class="nav-section">
 
-    <div class="post-meta">
-      <span class="category">Network</span>
-      <span>February 6, 2026</span>
+        <div class="nav-section-title">
+          <span>Linux</span>
+        </div>
+
+        <div class="nav-submenu">
+          <a href="#">Basics</a>
+          <a href="#">System Administration</a>
+          <a href="#">Troubleshooting</a>
+        </div>
+
+      </div>
+
+
+      <!-- MACHINE LEARNING -->
+
+      <div class="nav-section">
+
+        <div class="nav-section-title">
+          <span>Machine Learning</span>
+        </div>
+
+        <div class="nav-submenu">
+          <a href="#">Fundamentals</a>
+          <a href="#">Preprocessing</a>
+          <a href="#">Projects</a>
+        </div>
+
+      </div>
+
+
+      <!-- TROUBLESHOOTING LOGS -->
+
+      <div class="nav-section">
+
+        <div class="nav-section-title">
+          <span>Troubleshooting Logs</span>
+        </div>
+
+        <div class="nav-submenu">
+
+          <a href="/troubleshooting/network/">
+            Network
+          </a>
+
+          <a href="/troubleshooting/server-storage/">
+            Server / Storage
+          </a>
+
+          <a href="/troubleshooting/infrastructure/">
+            Infrastructure
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- ABOUT -->
+
+      <a href="#" class="nav-link">
+        About
+      </a>
+
+    </nav>
+
+
+    <div class="sidebar-footer">
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
     </div>
 
-    <h3>
-      <a href="/troubleshooting/network/unmanaged-ap-interference.html">
-        Unmanaged Access Points Causing Wireless Interference
-      </a>
-    </h3>
-
-    <p>
-      Legacy and unmanaged wireless devices created RF interference,
-      causing unstable connectivity in a production environment.
-    </p>
-
-    <a
-      href="/troubleshooting/network/unmanaged-ap-interference.html"
-      class="read-more"
-    >
-      Read article →
-    </a>
-
-  </article>
+  </aside>
 
 
-  <!-- POST 3 -->
+  <!-- MAIN CONTENT -->
 
-  <article class="post-card">
+  <main class="content">
 
-    <div class="post-meta">
-      <span class="category">Network</span>
-      <span>February 15, 2026</span>
-    </div>
 
-    <h3>
-      <a href="/troubleshooting/network/cctv-ip-conflict.html">
-        CCTV IP Conflict Causing Intermittent Video Loss
-      </a>
-    </h3>
+    <!-- HERO -->
 
-    <p>
-      A duplicate static IP caused unstable ARP mappings and
-      intermittent video loss on an IP camera.
-    </p>
+    <section class="hero">
 
-    <a
-      href="/troubleshooting/network/cctv-ip-conflict.html"
-      class="read-more"
-    >
-      Read article →
-    </a>
+      <p class="eyebrow">
+        TROUBLESHOOTING LOGS
+      </p>
 
-  </article>
+      <h1>
+        Network Troubleshooting
+      </h1>
 
-</section>
+      <p class="hero-description">
+        Real-world notes from diagnosing network problems,
+        finding root causes, and implementing practical fixes.
+      </p>
+
+    </section>
+
+
+    <!-- POSTS -->
+
+    <section class="posts-section">
+
+      <div class="section-header">
+        <h2>Posts</h2>
+      </div>
+
+
+      <!-- POST 1 -->
+
+      <article class="post-card">
+
+        <div class="post-meta">
+
+          <span class="category">
+            Network
+          </span>
+
+          <span>
+            January 29, 2026
+          </span>
+
+        </div>
+
+
+        <h3>
+          <a href="/troubleshooting/network/poe-power-insufficiency.html">
+            PoE Power Insufficiency Causing an AP to Operate in 2.4 GHz Only
+          </a>
+        </h3>
+
+
+        <p>
+          An Aruba access point was operating only on 2.4 GHz because
+          insufficient PoE allocation prevented full radio operation.
+        </p>
+
+
+        <a
+          href="/troubleshooting/network/poe-power-insufficiency.html"
+          class="read-more"
+        >
+          Read article →
+        </a>
+
+      </article>
+
+
+      <!-- POST 2 -->
+
+      <article class="post-card">
+
+        <div class="post-meta">
+
+          <span class="category">
+            Network
+          </span>
+
+          <span>
+            February 6, 2026
+          </span>
+
+        </div>
+
+
+        <h3>
+          <a href="/troubleshooting/network/unmanaged-ap-interference.html">
+            Unmanaged Access Points Causing Wireless Interference
+          </a>
+        </h3>
+
+
+        <p>
+          Legacy and unmanaged wireless devices created RF interference,
+          causing unstable connectivity in a production environment.
+        </p>
+
+
+        <a
+          href="/troubleshooting/network/unmanaged-ap-interference.html"
+          class="read-more"
+        >
+          Read article →
+        </a>
+
+      </article>
+
+
+      <!-- POST 3 -->
+
+      <article class="post-card">
+
+        <div class="post-meta">
+
+          <span class="category">
+            Network
+          </span>
+
+          <span>
+            February 15, 2026
+          </span>
+
+        </div>
+
+
+        <h3>
+          <a href="/troubleshooting/network/cctv-ip-conflict.html">
+            CCTV IP Conflict Causing Intermittent Video Loss
+          </a>
+        </h3>
+
+
+        <p>
+          A duplicate static IP caused unstable ARP mappings and
+          intermittent video loss on an IP camera.
+        </p>
+
+
+        <a
+          href="/troubleshooting/network/cctv-ip-conflict.html"
+          class="read-more"
+        >
+          Read article →
+        </a>
+
+      </article>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="main-footer">
+      © 2026 Hyunwook Kim
+    </footer>
+
+  </main>
+
+
+  <!-- MOBILE SIDEBAR -->
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const sidebar = document.getElementById("sidebar");
+
+    if (menuButton && sidebar) {
+      menuButton.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+      });
+    }
+  </script>
+
+</body>
+
+</html>

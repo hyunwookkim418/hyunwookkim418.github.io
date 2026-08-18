@@ -1,200 +1,387 @@
----
-layout: post
-title: "PoE Power Insufficiency Causing an AP to Operate in 2.4 GHz Only"
-date: 2026-01-29
-category: "Troubleshooting / Network"
-description: "A real-world troubleshooting case where insufficient PoE allocation caused an Aruba AP to disable its 5 GHz radio and operate only on 2.4 GHz."
----
+<!doctype html>
+<html lang="en">
 
-<div class="article-tags">
-  Network · Wireless · PoE · Cisco · Aruba
-</div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<h2>Overview</h2>
+  <title>PoE Power Insufficiency Causing an AP to Operate in 2.4 GHz Only | Hyunwook Kim</title>
 
-<p>
-  Several wireless access points were observed operating only on the
-  2.4 GHz band while their 5 GHz radios were disabled.
-</p>
+  <meta
+    name="description"
+    content="A real-world troubleshooting case where insufficient PoE allocation caused an Aruba AP to disable its 5 GHz radio and operate only on 2.4 GHz."
+  >
 
-<p>
-  The initial suspicion was an RF configuration or wireless controller
-  issue. Further investigation, however, showed that the problem
-  originated at the access switch.
-</p>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/img/favicon.png">
 
-<p>
-  The access point was receiving power, but the switch port was not
-  allocating enough PoE power for the AP to operate with its full
-  radio capabilities.
-</p>
-
-<div class="root-cause">
-  <strong>Root Cause</strong>
-
-  Insufficient PoE power allocation on the access-switch port caused
-  the Aruba AP to enter a degraded operating mode, disabling its
-  5 GHz radio while continuing to operate on 2.4 GHz.
-</div>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/blog.css">
+</head>
 
 
-<h2>Why It Matters</h2>
+<body>
 
-<p>
-  PoE does more than simply determine whether a network device powers on.
-</p>
+  <!-- MOBILE MENU BUTTON -->
 
-<p>
-  Modern enterprise wireless access points may dynamically disable
-  higher-power features when the available PoE budget falls below the
-  required threshold.
-</p>
-
-<ul>
-  <li>2.4 GHz radio requires less power.</li>
-  <li>5 GHz radio requires additional power.</li>
-  <li>Insufficient PoE can place an AP into a degraded mode.</li>
-</ul>
-
-<p>
-  As a result, what initially appears to be an RF or controller problem
-  can actually originate from a Layer 1 electrical constraint.
-</p>
+  <button class="mobile-menu-button" id="menuButton">
+    ☰
+  </button>
 
 
-<h2>Environment</h2>
+  <!-- SIDEBAR -->
 
-<ul>
-  <li><strong>Core Switch:</strong> Cisco Catalyst 9500 16X 10G</li>
-  <li><strong>Access Switch:</strong> Cisco Catalyst 9200L 24 PoE+</li>
-  <li><strong>Access Point:</strong> Hewlett-Packard Aruba AP-535</li>
-  <li><strong>Wireless:</strong> 802.11ax, 2.4 GHz / 5 GHz</li>
-  <li><strong>Issue Type:</strong> PoE budget / power negotiation</li>
-  <li><strong>Impact:</strong> Partial wireless service degradation — 5 GHz unavailable</li>
-</ul>
+  <aside class="sidebar" id="sidebar">
 
+    <div class="sidebar-header">
 
-<h2>Troubleshooting Process</h2>
+      <a href="/" class="site-name">
+        HYUNWOOK KIM
+      </a>
 
+      <p class="site-description">
+        Tech Notes & Guides
+      </p>
 
-<h3>1. Identify the Affected Device</h3>
-
-<p>
-  The first step was to map the IP address of the affected access point
-  to its MAC address.
-</p>
-
-<pre><code>C9500_BB# show arp | include 192.168.123.123</code></pre>
-
-<p>
-  After identifying the MAC address, the MAC address table was checked
-  to determine where the traffic was entering the switch.
-</p>
-
-<pre><code>C9500_BB# show mac address-table address 6026.efc0.78b8</code></pre>
+    </div>
 
 
-<h3>2. Locate the Access Switch</h3>
+    <nav class="sidebar-nav">
 
-<p>
-  Cisco Discovery Protocol (CDP) was used to identify the downstream
-  access switch and obtain additional neighbor information.
-</p>
+      <a href="/" class="nav-link">
+        Home
+      </a>
 
-<pre><code>C9500_BB# show cdp neighbors
+
+      <div class="nav-section">
+
+        <div class="nav-section-title">
+          <span>Linux</span>
+        </div>
+
+        <div class="nav-submenu">
+          <a href="#">Basics</a>
+          <a href="#">System Administration</a>
+          <a href="#">Troubleshooting</a>
+        </div>
+
+      </div>
+
+
+      <div class="nav-section">
+
+        <div class="nav-section-title">
+          <span>Machine Learning</span>
+        </div>
+
+        <div class="nav-submenu">
+          <a href="#">Fundamentals</a>
+          <a href="#">Preprocessing</a>
+          <a href="#">Projects</a>
+        </div>
+
+      </div>
+
+
+      <div class="nav-section">
+
+        <div class="nav-section-title">
+          <span>Troubleshooting Logs</span>
+        </div>
+
+        <div class="nav-submenu">
+
+          <a href="/troubleshooting/network/">
+            Network
+          </a>
+
+          <a href="/troubleshooting/server-storage/">
+            Server / Storage
+          </a>
+
+          <a href="/troubleshooting/infrastructure/">
+            Infrastructure
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <a href="#" class="nav-link">
+        About
+      </a>
+
+    </nav>
+
+
+    <div class="sidebar-footer">
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN CONTENT -->
+
+  <main class="content">
+
+    <article class="article">
+
+
+      <!-- ARTICLE HEADER -->
+
+      <header class="article-header">
+
+        <div class="breadcrumb">
+          Troubleshooting / Network
+        </div>
+
+        <h1>
+          PoE Power Insufficiency Causing an AP to Operate in 2.4 GHz Only
+        </h1>
+
+        <div class="article-meta">
+          January 29, 2026
+        </div>
+
+      </header>
+
+
+      <div class="article-tags">
+        Network · Wireless · PoE · Cisco · Aruba
+      </div>
+
+
+      <!-- OVERVIEW -->
+
+      <h2>Overview</h2>
+
+      <p>
+        Several wireless access points were observed operating only on the
+        2.4 GHz band while their 5 GHz radios were disabled.
+      </p>
+
+      <p>
+        The initial suspicion was an RF configuration or wireless controller
+        issue. Further investigation, however, showed that the problem
+        originated at the access switch.
+      </p>
+
+      <p>
+        The access point was receiving power, but the switch port was not
+        allocating enough PoE power for the AP to operate with its full
+        radio capabilities.
+      </p>
+
+
+      <div class="root-cause">
+
+        <strong>Root Cause</strong>
+
+        Insufficient PoE power allocation on the access-switch port caused
+        the Aruba AP to enter a degraded operating mode, disabling its
+        5 GHz radio while continuing to operate on 2.4 GHz.
+
+      </div>
+
+
+      <!-- WHY IT MATTERS -->
+
+      <h2>Why It Matters</h2>
+
+      <p>
+        PoE does more than simply determine whether a network device powers on.
+      </p>
+
+      <p>
+        Modern enterprise wireless access points may dynamically disable
+        higher-power features when the available PoE budget falls below the
+        required threshold.
+      </p>
+
+      <ul>
+        <li>2.4 GHz radio requires less power.</li>
+        <li>5 GHz radio requires additional power.</li>
+        <li>Insufficient PoE can place an AP into a degraded mode.</li>
+      </ul>
+
+      <p>
+        As a result, what initially appears to be an RF or controller problem
+        can actually originate from a Layer 1 electrical constraint.
+      </p>
+
+
+      <!-- ENVIRONMENT -->
+
+      <h2>Environment</h2>
+
+      <ul>
+        <li><strong>Core Switch:</strong> Cisco Catalyst 9500 16X 10G</li>
+        <li><strong>Access Switch:</strong> Cisco Catalyst 9200L 24 PoE+</li>
+        <li><strong>Access Point:</strong> Hewlett-Packard Aruba AP-535</li>
+        <li><strong>Wireless:</strong> 802.11ax, 2.4 GHz / 5 GHz</li>
+        <li><strong>Issue Type:</strong> PoE budget / power negotiation</li>
+        <li><strong>Impact:</strong> Partial wireless service degradation — 5 GHz unavailable</li>
+      </ul>
+
+
+      <!-- TROUBLESHOOTING PROCESS -->
+
+      <h2>Troubleshooting Process</h2>
+
+
+      <h3>1. Identify the Affected Device</h3>
+
+      <p>
+        The first step was to map the IP address of the affected access point
+        to its MAC address.
+      </p>
+
+      <pre><code>C9500_BB# show arp | include 192.168.123.123</code></pre>
+
+      <p>
+        After identifying the MAC address, the MAC address table was checked
+        to determine where the traffic was entering the switch.
+      </p>
+
+      <pre><code>C9500_BB# show mac address-table address 6026.efc0.78b8</code></pre>
+
+
+      <h3>2. Locate the Access Switch</h3>
+
+      <p>
+        Cisco Discovery Protocol (CDP) was used to identify the downstream
+        access switch and obtain additional neighbor information.
+      </p>
+
+      <pre><code>C9500_BB# show cdp neighbors
 C9500_BB# show cdp neighbors detail</code></pre>
 
 
-<h3>3. Verify PoE Status on the Access Switch</h3>
+      <h3>3. Verify PoE Status on the Access Switch</h3>
 
-<p>
-  After accessing the edge switch, the PoE status was inspected.
-</p>
+      <p>
+        After accessing the edge switch, the PoE status was inspected.
+      </p>
 
-<pre><code>P1_Incoming_01# show power inline</code></pre>
+      <pre><code>P1_Incoming_01# show power inline</code></pre>
 
-<p>
-  The output showed that PoE was active on the port, meaning the AP
-  was receiving power.
-</p>
+      <p>
+        The output showed that PoE was active on the port, meaning the AP
+        was receiving power.
+      </p>
 
-<p>
-  However, the allocated power was insufficient for the AP to operate
-  with its full radio capabilities.
-</p>
-
-
-<h3>4. Verify the Physical Switch Port</h3>
-
-<p>
-  The AP's MAC address was checked on the access switch to determine
-  the exact physical interface connected to the device.
-</p>
-
-<pre><code>P1_Incoming_01# show mac address-table address 6026.efc0.78b8</code></pre>
-
-<p>
-  In this case, the AP was connected to interface
-  <code>Gi1/0/13</code>.
-</p>
+      <p>
+        However, the allocated power was insufficient for the AP to operate
+        with its full radio capabilities.
+      </p>
 
 
-<h3>5. Review the Interface Configuration</h3>
+      <h3>4. Verify the Physical Switch Port</h3>
 
-<p>
-  The interface configuration was reviewed to verify the current PoE,
-  VLAN, speed, and interface settings.
-</p>
+      <p>
+        The AP's MAC address was checked on the access switch to determine
+        the exact physical interface connected to the device.
+      </p>
 
-<pre><code>P1_Incoming_01# show run interface Gi1/0/13</code></pre>
+      <pre><code>P1_Incoming_01# show mac address-table address 6026.efc0.78b8</code></pre>
+
+      <p>
+        In this case, the AP was connected to interface
+        <code>Gi1/0/13</code>.
+      </p>
 
 
-<h2>Resolution</h2>
+      <h3>5. Review the Interface Configuration</h3>
 
-<p>
-  The switch interface was configured to explicitly allocate
-  30 watts of PoE power to the access point.
-</p>
+      <p>
+        The interface configuration was reviewed to verify the current PoE,
+        VLAN, speed, and interface settings.
+      </p>
 
-<pre><code>P1_Incoming_01# configure terminal
+      <pre><code>P1_Incoming_01# show run interface Gi1/0/13</code></pre>
+
+
+      <!-- RESOLUTION -->
+
+      <h2>Resolution</h2>
+
+      <p>
+        The switch interface was configured to explicitly allocate
+        30 watts of PoE power to the access point.
+      </p>
+
+      <pre><code>P1_Incoming_01# configure terminal
 P1_Incoming_01(config)# interface Gi1/0/13
 P1_Incoming_01(config-if)# power inline static max 30000
 P1_Incoming_01(config-if)# end
 P1_Incoming_01# write memory</code></pre>
 
-<p>
-  This provided sufficient power for the connected access point to
-  operate without the previous PoE limitation.
-</p>
+      <p>
+        This provided sufficient power for the connected access point to
+        operate without the previous PoE limitation.
+      </p>
 
 
-<h2>Lessons Learned</h2>
+      <!-- LESSONS LEARNED -->
 
-<ul>
-  <li>
-    PoE is not simply a power-delivery mechanism. Available power can
-    directly affect endpoint functionality.
-  </li>
+      <h2>Lessons Learned</h2>
 
-  <li>
-    Wireless symptoms that appear to be RF-related may originate from
-    Layer 1 electrical constraints.
-  </li>
+      <ul>
 
-  <li>
-    Verify PoE budget and power negotiation before changing wireless
-    controller or RF configurations.
-  </li>
+        <li>
+          PoE is not simply a power-delivery mechanism. Available power can
+          directly affect endpoint functionality.
+        </li>
 
-  <li>
-    A device being powered on does not necessarily mean that it is
-    receiving enough power to operate with all features enabled.
-  </li>
-</ul>
+        <li>
+          Wireless symptoms that appear to be RF-related may originate from
+          Layer 1 electrical constraints.
+        </li>
+
+        <li>
+          Verify PoE budget and power negotiation before changing wireless
+          controller or RF configurations.
+        </li>
+
+        <li>
+          A device being powered on does not necessarily mean that it is
+          receiving enough power to operate with all features enabled.
+        </li>
+
+      </ul>
 
 
-<div class="article-footer">
-  <a href="/troubleshooting/network/">
-    ← Back to Network Troubleshooting
-  </a>
-</div>
+      <!-- BACK -->
+
+      <div class="article-footer">
+
+        <a href="/troubleshooting/network/">
+          ← Back to Network Troubleshooting
+        </a>
+
+      </div>
+
+    </article>
+
+  </main>
+
+
+  <!-- MOBILE SIDEBAR -->
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const sidebar = document.getElementById("sidebar");
+
+    if (menuButton && sidebar) {
+      menuButton.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+      });
+    }
+  </script>
+
+</body>
+
+</html>
