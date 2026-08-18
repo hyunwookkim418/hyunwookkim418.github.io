@@ -530,3 +530,74 @@ a {
   }
 
 }
+
+
+/* ========================================
+   WHAT I WRITE ABOUT
+   ======================================== */
+
+.topics-section {
+  margin-top: 72px;
+}
+
+.topics-section h2 {
+  margin-bottom: 18px;
+
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.topic-list {
+  border-top: 1px solid #e5e7eb;
+}
+
+.topic-item {
+  display: block;
+  padding: 24px 0;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  transition: transform 0.15s ease;
+}
+
+.topic-item h3 {
+  margin: 0 0 8px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.topic-item p {
+  margin: 0;
+
+  color: #71717a;
+  font-size: 15px;
+}
+
+.topic-item:hover {
+  transform: translateX(4px);
+}
+
+.topic-item:hover h3 {
+  color: #2457ff;
+}
+
+/* Topic separators */
+
+.topics-section .topic-list {
+  border-top: 1px solid #d1d5db;
+}
+
+.topics-section .topic-item {
+  display: block;
+  padding: 24px 0;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.topics-section .topic-item h3 {
+  margin: 0 0 10px 0;
+}
+
+.topics-section .topic-item p {
+  margin: 0;
+}
